@@ -21,5 +21,10 @@ namespace WebApplication_dataflow.Controllers {
 
             return View();
         }
+
+        public ActionResult PdfTest()
+        {
+            return View();
+        }
     }
 }

@@ -182,13 +182,19 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\dataflow_logo.png" />
+    <Content Include="Content\Images\dataflow_logo_cropped.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\html2canvas.js" />
+    <Content Include="Scripts\html2canvas.min.js" />
+    <Content Include="Scripts\html2canvas.svg.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -196,7 +202,26 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jspdf.debug.js" />
+    <Content Include="Scripts\jspdf.js" />
+    <Content Include="Scripts\jspdf.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\pdf.generator.js" />
+    <Content Include="Scripts\plugins\addhtml.js" />
+    <Content Include="Scripts\plugins\addimage.js" />
+    <Content Include="Scripts\plugins\annotations.js" />
+    <Content Include="Scripts\plugins\autoprint.js" />
+    <Content Include="Scripts\plugins\canvas.js" />
+    <Content Include="Scripts\plugins\cell.js" />
+    <Content Include="Scripts\plugins\context2d.js" />
+    <Content Include="Scripts\plugins\from_html.js" />
+    <Content Include="Scripts\plugins\javascript.js" />
+    <Content Include="Scripts\plugins\outline.js" />
+    <Content Include="Scripts\plugins\png_support.js" />
+    <Content Include="Scripts\plugins\split_text_to_size.js" />
+    <Content Include="Scripts\plugins\standard_fonts_metrics.js" />
+    <Content Include="Scripts\plugins\svg.js" />
+    <Content Include="Scripts\plugins\total_pages.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -234,6 +259,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\PdfTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
