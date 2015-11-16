@@ -20,6 +20,7 @@ namespace WebApplication_dataflow.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public string Type { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
