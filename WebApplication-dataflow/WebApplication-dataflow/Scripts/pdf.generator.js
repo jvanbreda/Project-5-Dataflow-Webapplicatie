@@ -1,5 +1,5 @@
 ﻿// Defineert de 'Pdf klasse'
-var Pdf = {
+var PdfGenerator = {
     // @reportName string "De naam van het rapport."
     // @renderElements string[] "Array van de element namen die gegenereerd moeten worden."
     // Method binnen de 'Pdf klasse', neemt een string als naam voor het rapport en de id namen van html elementen die gegenereerd moeten worden.
@@ -29,16 +29,24 @@ var Pdf = {
         pdfDocument.rect(2, 0, 5, 297, 'F');
         pdfDocument.rect(8, 0, 2, 297, 'F');
 
+        // Voegt een afbeelding toe aan het document met het imgdataurl gegenereerd op: "http://dataurl.net/#dataurlmaker".
         pdfDocument.addImage(logoImgData, 'PNG', 130, 15, 65, 12);
+
+        // Veranderd de letter grootte naar 36px.
         pdfDocument.setFontSize(36);
+        // Tekent de rapport naam in de vorm van tekst op 30mm vanaf links en 102mm vanaf de top, de twee getallen kunnen dus gezien worden als de margin left en top.
         pdfDocument.text(30, 102, reportName);
         pdfDocument.setFontSize(12);
         pdfDocument.text(30, 112, date.toLocaleDateString());
         pdfDocument.text(30, 117, date.toLocaleTimeString());
+        // De "concat" methode voegt 2 strings samen tot 1.
         pdfDocument.text(185, 290, "Pages: ".concat(renderElements.length));
 
         for (i = 0; i < renderElements.length; i++) {
+            // Voegt een extra pagina toe aan het pdf document.
             pdfDocument.addPage();
+            // Maakt pdf elementen van html elementen, 15mm left margin, 15mm top margin.
+            // Heeft als 'options' de width ingesteld op 170mm, dit betekend dat tekst maar tot 15+170=185mm gaat.
             pdfDocument.fromHTML($('#'.concat(renderElements[i])).get(0), 15, 15, {
                 'width': 170
             });
@@ -74,32 +82,44 @@ var Pdf = {
         pdfDocument.rect(2, 0, 5, 297, 'F');
         pdfDocument.rect(8, 0, 2, 297, 'F');
 
+        // Voegt een afbeelding toe aan het document met het imgdataurl gegenereerd op: "http://dataurl.net/#dataurlmaker".
         pdfDocument.addImage(logoImgData, 'PNG', 130, 15, 65, 12);
+
+        // Veranderd de letter grootte naar 36px.
         pdfDocument.setFontSize(36);
+        // Tekent de rapport naam in de vorm van tekst op 30mm vanaf links en 102mm vanaf de top, de twee getallen kunnen dus gezien worden als de margin left en top.
         pdfDocument.text(30, 102, reportName);
         pdfDocument.setFontSize(12);
         pdfDocument.text(30, 112, date.toLocaleDateString());
         pdfDocument.text(30, 117, date.toLocaleTimeString());
+        // De "concat" methode voegt 2 strings samen tot 1.
         pdfDocument.text(185, 290, "Pages: ".concat(renderElements.length));
-        var i = 0;
-        function recursiveAddHtml() {
+        //var i = 0;
+        function recursiveAddHtml(i) {
+            // Voegt een extra pagina toe aan het pdf document.
             pdfDocument.addPage();
+            // Maakt van het opgegeven html element een canvas, dit canvas wordt in het pdf gezet. Dit zorgt ervoor dat grafieken en afbeeldingen mee genomen worden.
+            // 15mm left margin, 15mm top margin.
             pdfDocument.addHTML($('#'.concat(renderElements[i]))[0], 15, 15, {
-                //'width': 170,
+                //'width': 482,
                 pagesplit: true
             },
+            // De callback van de "addHTML" methode, deze wordt pas aangeroepen zodra het canvas gerendered en in de pdf is gezet.
             function () {
                 pdfDocument.text(195, 290, (i + 1).toString());
 
                 if (i < renderElements.length - 1) {
-                    i++;
-                    recursiveAddHtml();
-                } else {
+                    //i++;
+                    recursiveAddHtml(i + 1);
+                }  // Als elk element in het pdf staat wordt het pdf document opgeslagen.
+                else {
+                    // Slaat het pdf document op en download het.
+                    // De "concat" methode voegt 2 strings samen tot 1.
                     pdfDocument.save(reportName.concat(".pdf"));
                 }
             });
         }
 
-        recursiveAddHtml();
+        recursiveAddHtml(0);
     }
 }

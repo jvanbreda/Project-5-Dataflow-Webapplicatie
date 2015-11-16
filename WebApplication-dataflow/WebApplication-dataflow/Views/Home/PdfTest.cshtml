@@ -35,8 +35,8 @@
         <img src="@Url.Content("~/Content/Images/dataflow_logo.png")" />
     </div>
     <hr/>
-    <p><a class="btn btn-default" onclick="new Pdf.GenerateFromHtml('Report', ['render_me1','render_me2'])" href="#">Download pdf &raquo;</a></p>
-    <p><a class="btn btn-default" onclick="new Pdf.GenerateFromHtmlFancy('Report', ['render_me1','render_me2'])" href="#">Download 'Fancy' pdf &raquo;</a></p>
+    <p><a class="btn btn-default" onclick="new PdfGenerator.GenerateFromHtml('Report', ['render_me1','render_me2'])" href="#">Download pdf &raquo;</a></p>
+    <p><a class="btn btn-default" onclick="new PdfGenerator.GenerateFromHtmlFancy('Report', ['render_me1', 'render_me2'])" href="#">Download 'Fancy' pdf &raquo;</a></p>
 </div>
 
 @Scripts.Render("~/bundles/pdf")
