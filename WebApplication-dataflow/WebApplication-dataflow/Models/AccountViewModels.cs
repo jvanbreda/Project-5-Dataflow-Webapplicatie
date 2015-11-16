@@ -79,6 +79,10 @@ namespace WebApplication_dataflow.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Display(Name = "User Type")]
+        [Required]
+        public string Type { get; set; }
     }
 
     public class ResetPasswordViewModel
