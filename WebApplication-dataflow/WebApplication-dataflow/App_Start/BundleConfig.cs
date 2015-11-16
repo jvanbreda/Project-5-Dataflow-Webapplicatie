@@ -7,9 +7,10 @@ namespace WebApplication_dataflow {
         public static void RegisterBundles(BundleCollection bundles) {
             bundles.Add(new ScriptBundle("~/bundles/pdf").Include(
                         "~/Scripts/jquery-{version}.js",
+                        //"~/Scripts/rasterizeHTML/*.js",
+                        "~/Scripts/jspdf.js",
+                        "~/Scripts/plugins/*.js",
                         "~/Scripts/html2canvas.min.js",
-                        //"~/Scripts/html2canvas.svg.js",
-                        "~/Scripts/jspdf.debug.js",
                         "~/Scripts/pdf.generator.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(

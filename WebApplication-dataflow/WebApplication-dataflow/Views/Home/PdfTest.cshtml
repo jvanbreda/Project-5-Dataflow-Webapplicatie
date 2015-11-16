@@ -7,7 +7,7 @@
 <h2>PdfTest</h2>
 
 <div class="container">
-    <div id="render_me1">
+    <div id="render_me1" style="background-color: white;">
         <h2>Generate reports</h2>
         <p>
             The button below converts html to pdf.
@@ -30,11 +30,13 @@
         </table>
     </div>
     <br/>
-    <div id="render_me2">
+    <div id="render_me2" style="background-color: white;">
         <div>Second page render!</div>
+        <img src="@Url.Content("~/Content/Images/dataflow_logo.png")" />
     </div>
     <hr/>
     <p><a class="btn btn-default" onclick="new Pdf.GenerateFromHtml('Report', ['render_me1','render_me2'])" href="#">Download pdf &raquo;</a></p>
+    <p><a class="btn btn-default" onclick="new Pdf.GenerateFromHtmlFancy('Report', ['render_me1','render_me2'])" href="#">Download 'Fancy' pdf &raquo;</a></p>
 </div>
 
 @Scripts.Render("~/bundles/pdf")
