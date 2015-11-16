@@ -11,7 +11,7 @@ namespace WebApplication_dataflow.Controllers {
         }
 
         public ActionResult About() {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Here you can see information about all the currently used units";
 
             return View();
         }
