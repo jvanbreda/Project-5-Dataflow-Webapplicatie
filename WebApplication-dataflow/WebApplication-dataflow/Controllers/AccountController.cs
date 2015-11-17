@@ -164,15 +164,17 @@ namespace WebApplication_dataflow.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
                     ApplicationDbContext context = new ApplicationDbContext();
                     UserManager.AddToRole(user.Id, user.Type);
                     context.SaveChanges();
+                    
 
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
-
+            
             // If we got this far, something failed, redisplay form
             return View(model);
         }

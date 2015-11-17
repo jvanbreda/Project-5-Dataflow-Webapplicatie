@@ -243,6 +243,9 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\CityGisControlPanel.cshtml" />
+    <Content Include="Views\Home\FleetManagerControlPanel.cshtml" />
+    <Content Include="Views\Home\CommercialControlPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
