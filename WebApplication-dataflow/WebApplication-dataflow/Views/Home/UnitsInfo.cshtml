@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "UnitsInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/UnitInformationController.js"></script>
+}
+
+@{
+    ViewBag.Title = "Unit information";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+<div ng-app="UnitApp" ng-controller="UnitInformationController">
+    <table border="1px solid black">
+        <tr>
+            <td>UnitId</td>
+            <td>Number of satellites</td>
+            <td>Connection quality</td>
+            <td>GPS/dGPS</td>
+        </tr>
+        <tr ng-repeat="unitInfo in units">
+            <td>{{unitInfo.unitId}}</td>
+            <td>{{unitInfo.numSatellite}}</td>
+            <td>{{unitInfo.hdop}}</td>
+            <td>{{unitInfo.dopType}}</td>
+        </tr>
+    </table>
+</div>
+
+<p>Use this area to provide additional information.</p>
+
+

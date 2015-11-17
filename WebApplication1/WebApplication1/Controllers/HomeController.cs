@@ -4,14 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace WebApplication_dataflow.Controllers {
+namespace WebApplication1.Controllers {
     public class HomeController : Controller {
         public ActionResult Index() {
             return View();
         }
 
         public ActionResult About() {
-            ViewBag.Message = "Your about page";
+            ViewBag.Message = "Your application description page.";
 
             return View();
         }
@@ -19,10 +19,6 @@ namespace WebApplication_dataflow.Controllers {
         public ActionResult Contact() {
             ViewBag.Message = "Your contact page.";
 
-            return View();
-        }
-
-        public ActionResult UnitsInfo() {
             return View();
         }
     }
