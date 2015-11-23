@@ -25,6 +25,10 @@ namespace WebApplication_dataflow {
             bundles.Add(new StyleBundle("~/Content/DashboardStyle").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/Dashboard.css"));
+            bundles.Add(new StyleBundle("~/Content/HomeStyle").Include(
+                      "~/Content/bootstrap.css",
+                      "~/Content/site.css",
+                      "~/Content/Home.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/dashboardController").Include(
                         "~/Scripts/AngularControllers/DashboardController.js"));
