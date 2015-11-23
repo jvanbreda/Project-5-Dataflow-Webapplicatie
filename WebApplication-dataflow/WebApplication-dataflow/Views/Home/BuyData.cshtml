@@ -5,21 +5,33 @@
 }
 
 <h2>Buy Data</h2>
-
-<div class="container" ng-controller="SelectController" ng-app="BuyData">
-    <div id="guideSteps">
-        <p>1. Select the data you wish to buy.</p>
+<div ng-app="BuyData" ng-controller="SelectController">
+    <div id="exampleCode" style="float: right; clear: both">
+        <textarea readonly rows="4" cols="50" ng-model="code"></textarea>
     </div>
-        <select id="dataSelect" name="dataSelect" ng-model="dataSelect" ng-change="update()" ng-hide="stepCount != 0">
-            <option value="event">Event data</option>
+
+    <div class="container">
+        <div id="guideSteps">
+            <p>1. Select the data you wish to buy.</p>
+        </div>
+        <select ng-model="dataSelect" ng-change="update()" ng-hide="stepCount != 0">
+            <option value="events">Event data</option>
             <option value="monitoring">Monitoring data</option>
             <option value="connection">Connection data</option>
-            <option value="position">Position data</option>
+            <option value="positions">Position data</option>
+        </select>
+        <select ng-model="dataTypeSelect" ng-change="update()" ng-hide="stepCount != 1">
+            <option value="XML">XML file</option>
+            <option value="JSON">JSON file</option>
+            <option value="CSV">CSV file</option>
         </select>
 
-    <input type="datetime-local" name="fromDate" ng-model="dateFrom" ng-show="stepCount == 1" ng-hide="stepCount != 1">
-    <input type="datetime-local" name="toDate" ng-model="dateTo" ng-show="stepCount == 1" ng-hide="stepCount != 1">
-        <br />
-</div>
+        <input type="date" ng-model="dateFrom" ng-change="update()" ng-hide="stepCount != 2">
+        <input type="date" ng-model="dateTo" ng-change="update()" ng-hide="stepCount != 3">
 
+        <button type="button" ng-click="previous()" ng-hide="stepCount == 0">Back</button>
+        <button type="button" ng-click="buy()" ng-hide="stepCount != 4">Buy</button>
+    </div>
+
+</div>
 @Scripts.Render("~/bundles/buydata")
