@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+<h1>@ViewBag.Title</h1>
+<hr />
+<div class="row">
+    <div class="col-sm-8">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse1">Unit position data</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        @*<div ng-app="dataflowApp" ng-controller="dashboardController">
+                            Unit id: {{ units[0].unitId }}
+                            <ul>
+                                <li ng-repeat="unit in units">
+                                    {{ unit.dateTime + ': (' + unit.latitudeGps  + '; ' + unit.longitudeGps  + ')'}}
+                                </li>
+                            </ul>
+
+                        </div>*@
+                        <div id="map"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">Panel Heading</div>
+            <div class="panel-body">Panel Content</div>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/dashboardController")
+
