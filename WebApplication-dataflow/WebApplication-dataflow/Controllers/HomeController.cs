@@ -26,5 +26,10 @@ namespace WebApplication_dataflow.Controllers {
         {
             return View();
         }
+
+        public ActionResult BuyData()
+        {
+            return View();
+        }
     }
 }

@@ -13,6 +13,9 @@ namespace WebApplication_dataflow {
                         "~/Scripts/html2canvas.min.js",
                         "~/Scripts/pdf.generator.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/buydata").Include(
+                        "~/Scripts/buydata.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                         "~/Scripts/angular.min.js"));
 
