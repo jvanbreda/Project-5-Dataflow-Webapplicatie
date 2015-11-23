@@ -52,8 +52,12 @@
      $scope.fillExample = function () {
          $http.get("http://145.24.222.160/DataFlowWebservice/api/" + $scope.dataSelect)
          .then(function (response) {
-             //$scope.code = response.data.result;
-             $scope.code = angular.fromJson(response.data);
+
+                 var fromJson = angular.fromJson(response.data.result);
+                 fromJson.json = response.data.result;
+                 $scope.code = fromJson;
+
+             
          })
          .catch(function (response) {
              alert("HTTP Request failed: " + response.data.status);
