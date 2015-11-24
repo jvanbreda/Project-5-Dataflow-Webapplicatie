@@ -4,35 +4,17 @@
 }
 
 <h2>@ViewBag.Title</h2>
+
 <div class="row">
-    <div class="col-md-6">
-        @(Html.GoogleMap()
-              .Name("map")
-              .Latitude(52.129038)
-              .Longitude(5.450061)
-              .Zoom(7)
-              .Height(350)
-              .Markers(m => m.Add().Latitude(52.129))
-
-         )
-    </div>
-
-
-
-</div>
-<div class="row">
-    <div ng-app="PositionsApp" class="col-md-8" div ng-controller="PositionController">
-        <ul ng-repeat="units in names">
-
-            <li>UnitId: {{units.unitId}}, LatGPS: {{units.latitudeGps}}, LonGPS: {{units.longitudeGps}}</li>
+    <div ng-app="PositionsApp" class="col-md-8" ng-controller="DataAnalysisController">
+        <ul ng-repeat="id in ids" >
+            <li>{{id}}</li>
         </ul>
     </div>
 </div>
 
-
 @section scripts
 {
-    @(Html.GoogleMap().ScriptRegistrar())
 <script type="text/javascript" src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/PositionController.js"></script>
 }
