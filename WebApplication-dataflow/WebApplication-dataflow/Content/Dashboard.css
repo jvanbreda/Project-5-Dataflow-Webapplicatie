@@ -72,3 +72,7 @@ footer p {
 .container-content {
     width: 99vw;
 }
+
+.disabled {
+    cursor: not-allowed; 
+}

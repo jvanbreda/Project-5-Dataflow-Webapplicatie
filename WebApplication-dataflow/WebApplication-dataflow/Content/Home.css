@@ -1,0 +1,34 @@
+﻿.entry-header {
+    background-image: url(Images/entry_background.png);
+    height: 100vh;
+}
+
+.entry-header div {
+    vertical-align: middle;
+    text-align: center;
+    color: white;
+    padding-top: 35vh;
+}
+
+.entry-header div h1 {
+    font-size: 72px;
+}
+
+.entry-header div p {
+    padding-bottom: 16px;
+}
+
+footer {
+    text-align: center;
+}
+
+.section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.section-colored {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    background-color: #fafafa;
+}
