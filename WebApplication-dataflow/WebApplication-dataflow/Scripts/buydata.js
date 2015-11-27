@@ -2,6 +2,7 @@
 
  app.controller('SelectController', function ($scope, $http) {
      $scope.dataSelect = null;
+     $scope.dataTypeSelect = null;
 
      //current day
      $scope.dateFrom = new Date();
@@ -18,6 +19,7 @@
                  guideSteps.append('<p id="0">2. Select the data type of the file.</p>');
                  break;
              case 1:
+                 $scope.fillExample();
                  guideSteps.append('<p id="1">3. Select the start date of your data.</p>');
                  break;
              case 2:
@@ -32,7 +34,6 @@
 
          }
          $scope.stepCount++;
-         $scope.fillExample();
      };
 
      $scope.previous = function () {
@@ -46,22 +47,67 @@
      };
 
      $scope.buy = function () {
+         $http.get("http://145.24.222.160/DataFlowWebservice/api/" + $scope.dataSelect)
+          .then(function (response) {
+
+              for (i = 0; i < response.result.length; i++){
+                
+
+              }
+
+          })
+         .catch(function (response) {
+             alert("HTTP Request failed: " + response.data.status);
+         });
+
         
      };
 
+     //http://145.24.222.160/DataFlowWebservice/api/positions/357566000058106
      $scope.fillExample = function () {
-         $http.get("http://145.24.222.160/DataFlowWebservice/api/" + $scope.dataSelect)
-         .then(function (response) {
+         var jsonExample =
+                '{\n'
+              + '\"_id\": \"564b38b02968ea0d10ae869b\",\n'
+              + '\"unitId\": 357566000058106,\n'
+              + '\"dateTime\": \"2015-03-09T23:00:02Z\",\n'
+              + '\"rdX\": 158126.109,\n'
+              + '\"rdY\": 380446.031,\n'
+              + ' \"latitudeGps\": 51.4131355,\n'
+              + ' \"longitudeGps\": 5.43213844,\n'
+              + ' \"speed\": 0,\n'
+              + ' \"course\": 31,\n'
+              + ' \"numSatellite\": 7,\n'
+              + ' \"hdop\": 1,\n'
+              + ' \"dopType\": \"Gps\"\n'
+              + '}';
+         
+         var xmlExample =
+              '<?xml version="1.0" encoding="UTF-8" ?>\n'
+	        + '<_id>564b38b02968ea0d10ae869b</_id>\n'
+	        + '<unitId>357566000058106</unitId>\n'
+	        + '<dateTime>2015-03-09T23:00:02Z</dateTime>\n'
+	        + '<rdX>158126.109</rdX>\n'
+	        + '<rdY>380446.031</rdY>\n'
+	        + '<latitudeGps>51.4131355</latitudeGps>\n'
+	        + '<longitudeGps>5.43213844</longitudeGps>\n'
+	        + '<speed>0</speed>\n'
+	        + '<course>31</course>\n'
+	        + '<numSatellite>7</numSatellite>\n'
+	        + '<hdop>1</hdop>\n'
+            + '<dopType>Gps</dopType>';
 
-                 var fromJson = angular.fromJson(response.data.result);
-                 fromJson.json = response.data.result;
-                 $scope.code = fromJson;
-
-             
-         })
-         .catch(function (response) {
-             alert("HTTP Request failed: " + response.data.status);
-         })
+         switch($scope.dataTypeSelect){
+             case "JSON":
+                 $scope.code = jsonExample;
+                 break;
+             case "XML":
+                 $scope.code = xmlExample;
+                 break;
+             case "CSV":
+                 $scope.code = null;
+                 break;
+         }
+         
      }
 
  }
