@@ -1,36 +1,39 @@
 ﻿@{
-    ViewBag.Title = "UnitsInfo";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@section scripts{
-    <script src="~/Scripts/angular.js"></script>
-    <script src="~/UnitInformationController.js"></script>
-}
-
-@{
     ViewBag.Title = "Unit information";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>@ViewBag.Title</h2>
 <h3>@ViewBag.Message</h3>
 
-<div ng-app="UnitApp" ng-controller="UnitInformationController">
-    <table border="1px solid black">
-        <tr>
-            <td>UnitId</td>
-            <td>Number of satellites</td>
-            <td>Connection quality</td>
-            <td>GPS/dGPS</td>
-        </tr>
-        <tr ng-repeat="unitInfo in units">
-            <td>{{unitInfo.unitId}}</td>
-            <td>{{unitInfo.numSatellite}}</td>
-            <td>{{unitInfo.hdop}}</td>
-            <td>{{unitInfo.dopType}}</td>
-        </tr>
-    </table>
-</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">google.load("visualization", "1", { packages: ["gauge", "corechart"] });</script>
+<script src="~/Scripts/UnitInformationController.js"></script>
 
-<p>Use this area to provide additional information.</p>
+
+<div ng-app="UnitApp" ng-controller="AnalysedDataController">
+    <div ng-repeat="unitInfo in units">
+        <div ng-click="checkUnitId(unitInfo)">
+            <ul>
+                <li>Unit ID: {{unitInfo.unitId}}</li>
+                <li>Number of satellites: {{unitInfo.numSatellite}}</li>
+                <li>HDOP: {{unitInfo.hdop}}</li>
+                <li>Dop Type: {{unitInfo.dopType}}</li>
+            </ul>
+        </div>
+    </div>
+    <div ng-repeat="detailedInfo in details">
+        <ul>
+            <li>Unit ID: {{detailedInfo.unitId}}</li>
+            <li>Number of satellites: {{detailedInfo.numSatellite}}</li>
+            <li>HDOP: {{detailedInfo.hdop}}</li>
+            <li>Dop Type: {{detailedInfo.dopType}}</li>
+        </ul>
+        <button ng-click="resetHTTP()">Go back</button>
+        
+    </div>
+    <div id="barChartDiv" style="visibility:hidden"></div>
+    <div id="gaugeGraphDiv" style="visibility:hidden"></div>
+</div>
 
 
