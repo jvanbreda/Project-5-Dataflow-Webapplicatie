@@ -12,7 +12,8 @@ namespace WebApplication_dataflow.Controllers {
 
         public ActionResult BuyData()
         {
-
+            return View();
+        }
 
         public ActionResult About() {
             ViewBag.Message = "Your application description page.";
