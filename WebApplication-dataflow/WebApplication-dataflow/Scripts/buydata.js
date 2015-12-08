@@ -47,6 +47,7 @@ app.controller('SelectController', function ($scope, $http) {
 
     $scope.buy = function () {
         var textContent = null;
+        var filename = 'data.txt';
         $.ajax({
             url: "http://145.24.222.160/DataFlowWebservice/api/" + $scope.dataSelect,
             dataType: 'text',
@@ -55,15 +56,17 @@ app.controller('SelectController', function ($scope, $http) {
                 switch($scope.dataTypeSelect){
                     case 'JSON':
                         textContent = data;
+                        filename = 'data.json';
                         break;
                     case 'XML':
                         textContent = x2js.json2xml_str($.parseJSON(data));
+                        filename = 'data.xml';
                         break;
                     case 'CSV':
                         break;
                 
                 }
-                writeToFile(textContent);
+                writeToFile(textContent, filename);
 
             }
         });
@@ -125,7 +128,7 @@ app.controller('SelectController', function ($scope, $http) {
 
 );
 
-writeToFile = function (text) {
+writeToFile = function (text, filename) {
     var textFile = null;
     var data = new Blob([text], {
         type: 'text/plain'
@@ -139,6 +142,7 @@ writeToFile = function (text) {
 
     textFile = window.URL.createObjectURL(data);
     var downloadLink = document.getElementById('downloadLink');
+    downloadLink.download = filename;
     downloadLink.href = textFile;
     downloadLink.style.display = 'block';
 
