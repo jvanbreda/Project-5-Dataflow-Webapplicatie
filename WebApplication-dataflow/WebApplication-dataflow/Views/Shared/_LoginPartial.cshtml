@@ -1,13 +1,27 @@
 ﻿@using Microsoft.AspNet.Identity
+<<<<<<< HEAD
+=======
+@using WebApplication_dataflow.Models
+>>>>>>> refs/remotes/origin/Development
 @if (Request.IsAuthenticated)
 {
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
     @Html.AntiForgeryToken()
+<<<<<<< HEAD
 
     <ul class="nav navbar-nav navbar-right">
         <li>
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+=======
+        
+        var userID = User.Identity.GetUserId();
+        var user = new ApplicationDbContext().Users.FirstOrDefault(x => x.Id == userID);
+        
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!(" + user.Type + ")", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+>>>>>>> refs/remotes/origin/Development
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>
