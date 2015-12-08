@@ -13,7 +13,7 @@ namespace WebApplication_dataflow.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201511162134055_Type"; }
+            get { return "201512081521309_Type"; }
         }
         
         string IMigrationMetadata.Source
