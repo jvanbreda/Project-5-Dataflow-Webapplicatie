@@ -22,23 +22,5 @@ namespace WebApplication_dataflow.Controllers {
 
             return View();
         }
-
-        [Authorize(Roles = "CityGis")]
-        public ActionResult CityGisControlPanel()
-        {
-            return View();
-        }
-
-        [Authorize(Roles = "Fleet manager")]
-        public ActionResult FleetManagerControlPanel()
-        {
-            return View();
-        }
-
-        [Authorize (Roles = "Commercial")]
-        public ActionResult CommercialControlPanel()
-        {
-            return View();
-        }
     }
 }
