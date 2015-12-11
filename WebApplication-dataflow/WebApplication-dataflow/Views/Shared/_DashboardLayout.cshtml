@@ -1,5 +1,4 @@
-﻿@using Microsoft.AspNet.Identity
-@using WebApplication_dataflow.Models
+﻿
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,18 +19,7 @@
             </div>
             <a href="#">
                 <div class="pull-right">
-                    @if (Request.IsAuthenticated)
-                    {
-                        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-                        {
-                            @Html.AntiForgeryToken()
-
-                            var userID = User.Identity.GetUserId();
-                            var user = new ApplicationDbContext().Users.FirstOrDefault(x => x.Id == userID);
-
-                            <h4><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></h4>
-                        }
-                    }
+                    <h4>Log out</h4>
                 </div>
             </a>
         </div>

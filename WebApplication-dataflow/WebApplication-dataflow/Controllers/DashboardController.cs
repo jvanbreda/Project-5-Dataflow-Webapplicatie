@@ -11,14 +11,7 @@ namespace WebApplication_dataflow.Controllers
         // GET: Dashboard
         public ActionResult Index()
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("LogIn", "Account", new { area = "" });
-            }
+            return View();
         }
     }
 }
