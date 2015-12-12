@@ -3,7 +3,6 @@ branches:
   only:
   - BuyData
 before_build:
-- cmd: nuget restore
+- cmd: nuget restore WebApplication-dataflow
 build:
-  project: WebApplication-dataflow.sln
   verbosity: minimal
