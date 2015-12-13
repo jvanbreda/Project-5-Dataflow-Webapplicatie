@@ -6,5 +6,3 @@ before_build:
 - cmd: nuget restore WebApplication-dataflow
 build:
   verbosity: minimal
-test:
-  assemblies: Project-5-Dataflow-Webapplicatie\WebApplication-dataflow\TestApplication-dataflow\bin\Debug\test.log
