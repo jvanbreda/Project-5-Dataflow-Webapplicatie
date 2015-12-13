@@ -15,8 +15,8 @@ namespace TestApplication_dataflow
             if (result) {
                 Trace.Listeners.Add(new TextWriterTraceListener("test.log", "myListener"));
                 Trace.TraceInformation("Test passed!");
-                // You must close or flush the trace to empty the output buffer.
                 Trace.Flush();
+                
             }
         }
     }
