@@ -7,7 +7,7 @@ before_build:
 build:
   verbosity: minimal
 after_test:
-- cmd: appveyor PushArtifact test.log
+- cmd: appveyor PushArtifact Project-5-Dataflow-Webapplicatie\WebApplication-dataflow\TestApplication-dataflow\bin\Debug\test.log
 artifacts:
 - path: test.log
   name: test
