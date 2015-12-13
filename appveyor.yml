@@ -1,0 +1,8 @@
+version: 1.0.{build}
+branches:
+  only:
+  - BuyData
+before_build:
+- cmd: nuget restore WebApplication-dataflow
+build:
+  verbosity: minimal
