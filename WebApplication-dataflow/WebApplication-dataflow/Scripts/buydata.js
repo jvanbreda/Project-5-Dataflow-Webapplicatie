@@ -1,6 +1,8 @@
 ﻿var app = angular.module('BuyData', []);
 app.controller('BuyDataController', function ($scope, $http) {
     $scope.dataSelect = null;
+
+    //datatype
     $scope.dataTypeSelect = 'CSV';
 
     //current day
