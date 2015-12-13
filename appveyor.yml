@@ -7,7 +7,7 @@ before_build:
 build:
   verbosity: minimal
 after_test:
-- cmd: appveyor PushArtifact test
+- cmd: appveyor PushArtifact test.log
 artifacts:
 - path: test.log
   name: test
