@@ -6,6 +6,8 @@ before_build:
 - cmd: nuget restore WebApplication-dataflow
 build:
   verbosity: minimal
+after_test:
+- cmd: appveyor PushArtifact test
 artifacts:
 - path: test.log
   name: test
