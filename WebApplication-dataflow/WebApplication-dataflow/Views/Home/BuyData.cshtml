@@ -7,6 +7,8 @@
 <h2>Buy Data</h2>
 <div ng-app="BuyData" ng-controller="SelectController">
     <div id="exampleCode" style="float: right; clear: both">
+        Example code
+        <br />
         <textarea readonly rows="4" cols="50" ng-model="code"></textarea>
     </div>
 
@@ -31,7 +33,8 @@
 
         <button type="button" ng-click="previous()" ng-hide="stepCount == 0">Back</button>
         <button type="button" ng-click="buy()" ng-hide="stepCount != 4">Buy</button>
-    </div>
+        <a download="info.txt" id="downloadLink" style="display: none">Download</a>
+</div>
 
 </div>
 @Scripts.Render("~/bundles/buydata")
