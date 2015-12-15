@@ -14,6 +14,5 @@ namespace WebApplication_dataflow.Controllers.Users
         {
             return View();
         }
-
     }
 }

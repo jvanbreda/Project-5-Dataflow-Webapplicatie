@@ -175,6 +175,7 @@
     <Compile Include="Controllers\Users\CommercialController.cs" />
     <Compile Include="Controllers\Users\FleetManagerController.cs" />
     <Compile Include="Controllers\Users\UserController.cs" />
+    <Compile Include="Controllers\WebApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -286,6 +287,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\User\" />
+    <Folder Include="Views\WebApi\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
