@@ -1,5 +1,4 @@
 ﻿var app = angular.module('BuyData', []);
-
 app.controller('SelectController', function ($scope, $http) {
     $scope.dataSelect = null;
     $scope.dataTypeSelect = null;
@@ -48,35 +47,33 @@ app.controller('SelectController', function ($scope, $http) {
 
     $scope.buy = function () {
         var textContent = null;
-        $http.get("http://145.24.222.160/DataFlowWebservice/api/" + $scope.dataSelect)
-            .then(function (response) {
-                for (i = 0; i < response.result.length; i++) {
-                    //make content (csv/xml/json) in textContent
+        var filename = 'data.txt';
+        $.ajax({
+            url: "http://145.24.222.160/DataFlowWebservice/api/" + $scope.dataSelect,
+            dataType: 'text',
+            success: function (data) {
+                var x2js = new X2JS();
+                switch($scope.dataTypeSelect){
+                    case 'JSON':
+                        textContent = data;
+                        filename = 'data.json';
+                        break;
+                    case 'XML':
+                        textContent = x2js.json2xml_str($.parseJSON(data));
+                        filename = 'data.xml';
+                        break;
+                    case 'CSV':
+                        break;
+                
                 }
-            }).catch(function (response) {
-                alert("HTTP Request failed: " + response.data.status);
-            });
+                writeToFile(textContent, filename);
 
-
-        var textFile = null;
-        var data = new Blob([textContent], {
-            type: 'text/plain'
+            }
         });
-        // If we are replacing a previously generated file we need to
-        // manually revoke the object URL to avoid memory leaks.
-        if (textFile !== null) {
-            window.URL.revokeObjectURL(textFile);
-        }
-
-
-        textFile = window.URL.createObjectURL(data);
-        var link = document.getElementById('downloadLink');
-        link.href = textFile;
-        link.style.display = 'block';
     };
 
 
-    //http://145.24.222.160/DataFlowWebservice/api/positions/357566000058106
+    //http://145.24.222.160/DataFlowWebservice/api/positions/
     $scope.fillExample = function () {
         var jsonExample =
                '{\n'
@@ -130,3 +127,23 @@ app.controller('SelectController', function ($scope, $http) {
 }
 
 );
+
+writeToFile = function (text, filename) {
+    var textFile = null;
+    var data = new Blob([text], {
+        type: 'text/plain'
+    });
+    // If we are replacing a previously generated file we need to
+    // manually revoke the object URL to avoid memory leaks.
+    if (textFile !== null) {
+        window.URL.revokeObjectURL(textFile);
+    }
+
+
+    textFile = window.URL.createObjectURL(data);
+    var downloadLink = document.getElementById('downloadLink');
+    downloadLink.download = filename;
+    downloadLink.href = textFile;
+    downloadLink.style.display = 'block';
+
+}

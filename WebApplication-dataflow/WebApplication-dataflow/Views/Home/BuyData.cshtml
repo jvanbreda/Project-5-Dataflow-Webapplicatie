@@ -18,7 +18,7 @@
         </div>
         <select ng-model="dataSelect" ng-change="update()" ng-hide="stepCount != 0">
             <option value="events">Event data</option>
-            <option value="monitoring">Monitoring data</option>
+            <option value="monitorings">Monitoring data</option>
             <option value="connection">Connection data</option>
             <option value="positions">Position data</option>
         </select>
@@ -33,7 +33,7 @@
 
         <button type="button" ng-click="previous()" ng-hide="stepCount == 0">Back</button>
         <button type="button" ng-click="buy()" ng-hide="stepCount != 4">Buy</button>
-        <a download="info.txt" id="downloadLink" style="display: none">Download</a>
+        <a id="downloadLink" style="display: none">Download</a>
 </div>
 
 </div>
