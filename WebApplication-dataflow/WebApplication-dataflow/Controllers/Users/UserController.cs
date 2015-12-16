@@ -16,7 +16,7 @@ namespace WebApplication_dataflow.Controllers.Users
         public ActionResult ControlPanel()
         {
             WebApiController webApi = new WebApiController();
-            webApi.Connect();
+            webApi.Connect("monitorings");
 
             return View();
         }
