@@ -171,6 +171,10 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\Users\CityGisController.cs" />
+    <Compile Include="Controllers\Users\CommercialController.cs" />
+    <Compile Include="Controllers\Users\FleetManagerController.cs" />
+    <Compile Include="Controllers\Users\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -235,6 +239,7 @@
     <Content Include="Scripts\plugins\total_pages.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\xml2json.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -270,9 +275,18 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
+    <Content Include="Views\Home\BuyData.cshtml" />
+    <Content Include="Views\Home\CityGisControlPanel.cshtml" />
+    <Content Include="Views\Home\CommercialControlPanel.cshtml" />
+    <Content Include="Views\Home\FleetManagerControlPanel.cshtml" />
+    <Content Include="Views\Shared\_AccountLayout.cshtml" />
+    <Content Include="Views\CityGis\ControlPanel.cshtml" />
+    <Content Include="Views\Commercial\ControlPanel.cshtml" />
+    <Content Include="Views\FleetManager\ControlPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
