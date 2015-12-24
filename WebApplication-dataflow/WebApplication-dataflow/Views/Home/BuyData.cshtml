@@ -5,9 +5,9 @@
 }
 
 <h2>Buy Data</h2>
-<div ng-app="BuyData" ng-controller="SelectController">
+<div ng-app="BuyData" ng-controller="BuyDataController">
     <div id="exampleCode" style="float: right; clear: both">
-        Example code
+        Example code:
         <br />
         <textarea readonly rows="4" cols="50" ng-model="code"></textarea>
     </div>
@@ -18,8 +18,6 @@
         </div>
         <select ng-model="dataSelect" ng-change="update()" ng-hide="stepCount != 0">
             <option value="events">Event data</option>
-            <option value="monitorings">Monitoring data</option>
-            <option value="connection">Connection data</option>
             <option value="positions">Position data</option>
         </select>
         <select ng-model="dataTypeSelect" ng-change="update()" ng-hide="stepCount != 1">

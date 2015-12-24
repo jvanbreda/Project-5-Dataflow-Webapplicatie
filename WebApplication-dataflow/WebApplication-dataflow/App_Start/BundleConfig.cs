@@ -15,7 +15,8 @@ namespace WebApplication_dataflow {
 
             bundles.Add(new ScriptBundle("~/bundles/buydata").Include(
                         "~/Scripts/buydata.js",
-                        "~/Scripts/xml2json.js"));
+                        "~/Scripts/xml2json.js",
+                        "~/Scripts/papaparse.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                         "~/Scripts/angular.min.js"));
