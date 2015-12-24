@@ -10,7 +10,6 @@ namespace WebApplication_dataflow.Controllers {
             return View();
         }
 <<<<<<< HEAD
-<<<<<<< HEAD
 
         public ActionResult BuyData()
         {
@@ -28,8 +27,6 @@ namespace WebApplication_dataflow.Controllers {
 
             return View();
         }
-=======
->>>>>>> parent of 5e52e78... Manual merge
 =======
 >>>>>>> parent of 5e52e78... Manual merge
     }

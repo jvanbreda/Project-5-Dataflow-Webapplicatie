@@ -276,7 +276,6 @@
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
 <<<<<<< HEAD
-<<<<<<< HEAD
     <Content Include="Views\Home\BuyData.cshtml" />
     <Content Include="Views\Home\CityGisControlPanel.cshtml" />
     <Content Include="Views\Home\CommercialControlPanel.cshtml" />
@@ -285,8 +284,6 @@
     <Content Include="Views\CityGis\ControlPanel.cshtml" />
     <Content Include="Views\Commercial\ControlPanel.cshtml" />
     <Content Include="Views\FleetManager\ControlPanel.cshtml" />
-=======
->>>>>>> parent of 5e52e78... Manual merge
 =======
 >>>>>>> parent of 5e52e78... Manual merge
   </ItemGroup>
