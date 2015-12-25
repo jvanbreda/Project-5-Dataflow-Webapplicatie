@@ -3,12 +3,15 @@
     ViewBag.Title = "ControlPanel";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<script type="text/javascript" src="~/Scripts/d3/d3.js"></script>
+<script type="text/javascript" src="~/Scripts/angular-nvd3.js"></script>
+<script type="text/javascript" src="~/Scripts/nv.d3.js"></script>
+<link rel="stylesheet" href="~/Content/nv.d3.css"/>
 
 <h2>ControlPanel CityGis</h2>
 
-<div ng-app="DiskSpaceApp" ng-controller="DiskSpaceCtrl as ds">
-    {{ds.Title}}
+<div ng-app="DiskSpaceApp" ng-controller="DiskSpaceCtrl">
+    <nvd3 options="options" data="data"></nvd3>
 </div>
 
 

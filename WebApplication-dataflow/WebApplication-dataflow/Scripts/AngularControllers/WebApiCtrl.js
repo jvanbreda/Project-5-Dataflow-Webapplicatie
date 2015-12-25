@@ -4,7 +4,7 @@ app.controller('WebApiCtrl', function ($http) {
     var vm = this;
     vm.Title = "WebApi";
     vm.DiskSpace = function () {
-        $http.get("http://145.24.222.160/DataFlowWebservice/api/unitDiskSpace").success(function (data) {
+        $http.get("http://145.24.222.160/DataFlowWebservice/api/monitorings").success(function (data) {
             vm.myData = data;
         })
     }
