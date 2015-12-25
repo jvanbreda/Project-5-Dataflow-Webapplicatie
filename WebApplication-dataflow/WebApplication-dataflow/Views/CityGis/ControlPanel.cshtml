@@ -1,8 +1,16 @@
-﻿
+﻿@Scripts.Render("~/bundles/DiskSpace")
 @{
     ViewBag.Title = "ControlPanel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <h2>ControlPanel CityGis</h2>
+
+<div ng-app="DiskSpaceApp" ng-controller="DiskSpaceCtrl as ds">
+    {{ds.Title}}
+</div>
+
+
 
 
