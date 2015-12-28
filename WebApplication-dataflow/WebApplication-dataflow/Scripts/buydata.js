@@ -13,6 +13,7 @@ app.controller('BuyDataController', function ($scope, $http) {
     $scope.stepCount = 0;
 
     $scope.update = function () {
+        console.log($scope.dateFrom);
         var guideSteps = angular.element(document.querySelector('#guideSteps'));
 
         switch ($scope.stepCount) {
@@ -50,8 +51,11 @@ app.controller('BuyDataController', function ($scope, $http) {
     $scope.buy = function () {
         var textContent = null;
         var filename = "default.txt";
+        var beginDate = $scope.dateFrom.getFullYear() + "-" + ($scope.dateFrom.getMonth() + 1) + "-" + $scope.dateFrom.getDate();
+        var endDate = $scope.dateTo.getFullYear() + "-" + ($scope.dateTo.getMonth() + 1)+ "-" + $scope.dateTo.getDate();
+
         $.ajax({
-            url: "http://145.24.222.160/DataFlowWebservice/api/" + $scope.dataSelect,
+            url: "http://145.24.222.160/DataFlowWebservice/api/" + $scope.dataSelect + "/" + beginDate + "/" + endDate,
             dataType: 'text',
             success: function (data) {
                 var improvedData = data.replace(data.substring(0, 27), "");
