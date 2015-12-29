@@ -9,8 +9,7 @@ namespace WebApplication_dataflow.Controllers {
         public ActionResult Index() {
             return View();
         }
-<<<<<<< HEAD
-
+		
         public ActionResult BuyData()
         {
             return View();
@@ -27,7 +26,5 @@ namespace WebApplication_dataflow.Controllers {
 
             return View();
         }
-=======
->>>>>>> parent of 5e52e78... Manual merge
     }
 }
