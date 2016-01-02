@@ -552,7 +552,7 @@ function X2JS(config) {
 	};
 
 	this.json2xml_str = function (jsonObj) {
-	    return '<?xml version="1.0" encoding="UTF-8" ?>' + parseJSONObject ( jsonObj );
+		return parseJSONObject ( jsonObj );
 	};
 
 	this.json2xml = function (jsonObj) {

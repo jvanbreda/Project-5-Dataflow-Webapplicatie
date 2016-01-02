@@ -1,7 +1,32 @@
 ﻿
 @{
     ViewBag.Title = "CityGisControlPanel";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
+<h1>@ViewBag.Title</h1>
+<hr />
+<div class="row">
+    <div class="col-sm-8">
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" href="#collapse1">Unit position data</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">Panel Heading</div>
+            <div class="panel-body">Panel Content</div>
+        </div>
+    </div>
+</div>
 
-<h2>CityGisControlPanel</h2>
-
+@Scripts.Render("~/bundles/dashboardController")

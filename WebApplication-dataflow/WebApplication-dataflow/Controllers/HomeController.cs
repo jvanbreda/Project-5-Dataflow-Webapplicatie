@@ -9,7 +9,7 @@ namespace WebApplication_dataflow.Controllers {
         public ActionResult Index() {
             return View();
         }
-		
+
         public ActionResult BuyData()
         {
             return View();
