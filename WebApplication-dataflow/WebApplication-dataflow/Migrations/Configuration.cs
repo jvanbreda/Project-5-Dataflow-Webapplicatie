@@ -10,7 +10,6 @@ namespace WebApplication_dataflow.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "WebApplication_dataflow.Models.ApplicationDbContext";
         }
 
         protected override void Seed(WebApplication_dataflow.Models.ApplicationDbContext context)
