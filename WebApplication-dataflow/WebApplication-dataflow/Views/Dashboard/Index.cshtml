@@ -19,16 +19,7 @@
                 </div>
                 <div id="collapse1" class="panel-collapse collapse in">
                     <div class="panel-body">
-                        @*<div ng-app="dataflowApp" ng-controller="dashboardController">
-                            Unit id: {{ units[0].unitId }}
-                            <ul>
-                                <li ng-repeat="unit in units">
-                                    {{ unit.dateTime + ': (' + unit.latitudeGps  + '; ' + unit.longitudeGps  + ')'}}
-                                </li>
-                            </ul>
 
-                        </div>*@
-                        <div id="map"></div>
                     </div>
                 </div>
             </div>
@@ -36,8 +27,17 @@
     </div>
     <div class="col-sm-4">
         <div class="panel panel-default">
-            <div class="panel-heading">Panel Heading</div>
-            <div class="panel-body">Panel Content</div>
+            <div class="panel-heading">Maintenance</div>
+            <div class="panel-body">
+                <div ng-app="dataflowApp" ng-controller="dashboardController">
+                    <img ng-hide="maintenance" class="img-responsive" src="~/Content/Images/loading.gif" />
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="unit in maintenance">
+                            {{ "Unit " + unit.unitId + " has driven " + unit.kilometersTravelled + " km"}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>
