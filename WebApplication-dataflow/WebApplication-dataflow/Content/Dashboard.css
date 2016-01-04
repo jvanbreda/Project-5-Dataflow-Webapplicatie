@@ -76,3 +76,7 @@ footer p {
 .disabled {
     cursor: not-allowed; 
 }
+
+.img-center {
+    margin: 0 auto;
+}
