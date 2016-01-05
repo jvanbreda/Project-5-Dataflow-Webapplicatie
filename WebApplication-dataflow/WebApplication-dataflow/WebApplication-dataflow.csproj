@@ -232,8 +232,9 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\AngularControllers\DashboardController.js" />
-    <Content Include="Scripts\AngularControllers\DiskSpaceCtrl.js" />
-    <Content Include="Scripts\AngularControllers\WebApiCtrl.js" />
+    <Content Include="Scripts\AngularControllers\DiskSpaceAnalysis\app.js" />
+    <Content Include="Scripts\AngularControllers\DiskSpaceAnalysis\DiskSpaceController.js" />
+    <Content Include="Scripts\AngularControllers\DiskSpaceAnalysis\DiskSpaceService.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="nvd3.license.md" />
@@ -1080,6 +1081,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\AngularServices\" />
     <Folder Include="Views\User\" />
     <Folder Include="Views\WebApi\" />
   </ItemGroup>
