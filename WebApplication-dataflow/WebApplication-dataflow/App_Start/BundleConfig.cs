@@ -1,17 +1,22 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace WebApplication_dataflow {
-    public class BundleConfig {
+namespace WebApplication_dataflow
+{
+    public class BundleConfig
+    {
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
-        public static void RegisterBundles(BundleCollection bundles) {
+        public static void RegisterBundles(BundleCollection bundles)
+        {
             bundles.Add(new ScriptBundle("~/bundles/pdf").Include(
                         "~/Scripts/jquery-{version}.js",
-                        //"~/Scripts/rasterizeHTML/*.js",
                         "~/Scripts/jspdf.js",
                         "~/Scripts/plugins/*.js",
                         "~/Scripts/html2canvas.min.js",
                         "~/Scripts/pdf.generator.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/graph").Include(
+                        "~/Scripts/angular-fusioncharts.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/buydata").Include(
                         "~/Scripts/buydata.js",
