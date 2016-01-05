@@ -193,6 +193,8 @@
     <Content Include="Content\Images\dataflow_logo.png" />
     <Content Include="Content\Images\dataflow_logo_cropped.png" />
     <Content Include="Content\Images\entry_background.png" />
+    <Content Include="Content\Images\loading.gif" />
+    <Content Include="Content\Images\loading_dots.gif" />
     <Content Include="Content\Images\placeholder.png" />
     <Content Include="Content\Images\triangular.png" />
     <Content Include="Content\Images\triangular_%402X.png" />
