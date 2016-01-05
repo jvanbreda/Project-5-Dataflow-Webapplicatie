@@ -2,7 +2,7 @@
 
 diskSpaceApp.service('HTTPService', function ($http) {
     var getData = function () {
-        return $http.get("http://145.24.222.160/DataFlowAnalyseWebService/api/UnitDiskSpace")
+        return $http.get("http://145.24.222.160/DataFlowAnalyseService/api/UnitDiskSpace")
         .then(function (response) {
             return response.data.result;
         })
@@ -10,14 +10,13 @@ diskSpaceApp.service('HTTPService', function ($http) {
             alert("HTTP request failed:" + response.status);
         })
     }
+    return {getData: getData};
 });
 
 
 diskSpaceApp.controller("diskSpaceController", ['$scope','HTTPService',function ($scope, HTTPService) {
-    var dataPromise = HTTPSerivce.getData();
+    var dataPromise = HTTPService.getData();
     dataPromise.then(function (response) {
-        $scope.init = function () {
-
-        }
+        $scope.init = response;
     })
 }]);

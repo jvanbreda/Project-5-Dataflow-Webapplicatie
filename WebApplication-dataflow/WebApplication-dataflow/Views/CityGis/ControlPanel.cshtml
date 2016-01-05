@@ -12,11 +12,9 @@
 <h2>ControlPanel CityGis</h2>
 
 <div ng-app="diskSpaceApp" ng-controller="diskSpaceController">
-    {{hello}}
-</div>
-
-<div ng-app="diskSpaceApp" ng-controller="diskSpaceController">
-
+    <div ng-repeat="diskSpace in init">
+        {{diskSpace}}
+    </div>
 </div>
 
 
