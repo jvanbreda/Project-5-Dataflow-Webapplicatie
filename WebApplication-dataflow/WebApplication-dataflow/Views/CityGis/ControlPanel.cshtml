@@ -12,12 +12,13 @@
 <h2>ControlPanel CityGis</h2>
 
 <div ng-app="diskSpaceApp" ng-controller="diskSpaceController">
-    <nvd3 data="data" options ="options">
+    <nvd3 data="data" options ="options"></nvd3>
 
-    </nvd3>
-
-    <div ng-repeat="diskSpace in init">
-        {{diskSpace}}
+    <div ng-repeat="diskSpaceUnit in init">
+        <div ng-repeat="(key, value) in diskSpaceUnit">
+            {{key}}
+            {{value}}
+        </div>
     </div>
 </div>
 

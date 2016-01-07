@@ -18,6 +18,7 @@ diskSpaceApp.controller("diskSpaceController", ['$scope','HTTPService',function 
     var dataPromise = HTTPService.getData();
     dataPromise.then(function (response) {
         $scope.init = response;
+        
 
         $scope.options = {
             chart: {
@@ -42,32 +43,20 @@ diskSpaceApp.controller("diskSpaceController", ['$scope','HTTPService',function 
 
         $scope.data = [
             {
-                key: "One",
-                y: 5
+                key: "Empty",
+                y: 8
             },
             {
-                key: "Two",
-                y: 2
+                key: "Half full",
+                y: 6
             },
             {
-                key: "Three",
+                key: "Allmost full",
                 y: 9
             },
             {
-                key: "Four",
-                y: 7
-            },
-            {
-                key: "Five",
-                y: 4
-            },
-            {
-                key: "Six",
-                y: 3
-            },
-            {
-                key: "Seven",
-                y: .5
+                key: "Full",
+                y:4
             }
         ];
     })
