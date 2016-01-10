@@ -206,6 +206,7 @@
     <Content Include="Scripts\angular-fusioncharts.js" />
     <Content Include="Scripts\angular-fusioncharts.min.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\AngularControllers\ConnectionController.js" />
     <Content Include="Scripts\AngularControllers\DashboardController.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
