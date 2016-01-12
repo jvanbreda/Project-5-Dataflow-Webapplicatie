@@ -2,7 +2,8 @@
 
 diskSpaceApp.service('HTTPService', function ($http) {
     var getData = function () {
-        return $http.get("http://145.24.222.160/DataFlowAnalyseService/api/UnitDiskSpace")
+        return $http.get("http://localhost:22328/api/UnitDiskSpace/111/hoi")
+        //return $http.get("http://145.24.222.160/DataFlowAnalyseService/api/UnitDiskSpace/111/status")
         .then(function (response) {
             return response.data.result;
         })
@@ -14,10 +15,42 @@ diskSpaceApp.service('HTTPService', function ($http) {
 });
 
 
-diskSpaceApp.controller("diskSpaceController", ['$scope','HTTPService',function ($scope, HTTPService) {
+diskSpaceApp.controller("diskSpaceController", ['$scope','HTTPService', '$log',function ($scope, HTTPService, $log) {
     var dataPromise = HTTPService.getData();
     dataPromise.then(function (response) {
-        $scope.init = response;
+        $scope.init = response.data;
+        $log.info(response);
+        var amountFull = 5;
+        var amountAllmostFull = 6;
+        var amountHalfFull = 7;
+        var amountEmpty = 8;
+
+        var objects = [];
+
+        var setUnitDiskSpaceData = function (response) {
+            console.log("starting iterating!!");
+            for (var key in response) {
+                // skip loop if the property is from prototype
+                if (!response.hasOwnProperty(key)) continue;
+                console.log(response[key])
+                var obj = response[key];
+                var unitDiskSpaceItem = {
+                    diskSpacediskSpaceStatus: "",
+                    statusAmount: ""
+                }
+                for (var prop in obj) {
+                    // skip loop if the property is from prototype
+                    if (!obj.hasOwnProperty(prop)) continue;
+
+                    // your code
+                    console.log(prop + " = " + obj[prop]);
+                    
+                }
+            }       
+            
+        }
+
+        setUnitDiskSpaceData(response);
         
 
         $scope.options = {
@@ -44,19 +77,19 @@ diskSpaceApp.controller("diskSpaceController", ['$scope','HTTPService',function 
         $scope.data = [
             {
                 key: "Empty",
-                y: 8
+                y: amountEmpty
             },
             {
                 key: "Half full",
-                y: 6
+                y: amountHalfFull
             },
             {
                 key: "Allmost full",
-                y: 9
+                y: amountAllmostFull
             },
             {
                 key: "Full",
-                y:4
+                y: amountFull
             }
         ];
     })
