@@ -1,9 +1,7 @@
 ﻿var app = angular.module('BuyData', []);
-app.controller('BuyDataController', function ($scope, $http) {
+app.controller('SelectController', function ($scope, $http) {
     $scope.dataSelect = null;
-
-    //datatype
-    $scope.dataTypeSelect = 'CSV';
+    $scope.dataTypeSelect = null;
 
     //current day
     $scope.dateFrom = new Date();
@@ -52,42 +50,67 @@ app.controller('BuyDataController', function ($scope, $http) {
         var textContent = null;
         var filename = "default.txt";
         var beginDate = $scope.dateFrom.getFullYear() + "-" + ($scope.dateFrom.getMonth() + 1) + "-" + $scope.dateFrom.getDate();
-        var endDate = $scope.dateTo.getFullYear() + "-" + ($scope.dateTo.getMonth() + 1)+ "-" + $scope.dateTo.getDate();
+        var endDate = $scope.dateTo.getFullYear() + "-" + ($scope.dateTo.getMonth() + 1) + "-" + $scope.dateTo.getDate();
+
+        var filename = 'data.txt';
 
         $.ajax({
             url: "http://145.24.222.160/DataFlowWebservice/api/" + $scope.dataSelect + "/" + beginDate + "/" + endDate,
             dataType: 'text',
             success: function (data) {
-                var improvedData = data.replace(data.substring(0, 27), "");
-                improvedData = improvedData.substring(0, improvedData.length - 1);
+                var x2js = new X2JS();
                 switch ($scope.dataTypeSelect) {
                     case 'JSON':
-                        textContent = improvedData;
-                        filename = $scope.dataSelect + '.json';
+                        textContent = data;
+                        filename = 'data.json';
                         break;
                     case 'XML':
-                        var x2js = new X2JS();
-                        textContent = x2js.json2xml_str($.parseJSON(improvedData));
-                        filename = $scope.dataSelect + '.xml';
+                        textContent = x2js.json2xml_str($.parseJSON(data));
+                        filename = 'data.xml';
                         break;
                     case 'CSV':
-                        textContent = Papa.unparse(improvedData);
-                        filename = $scope.dataSelect + '.csv';
                         break;
+
                 }
-                $scope.writeToFile(textContent, filename);
+                writeToFile(textContent, filename);
 
             }
         });
     };
 
 
+    //http://145.24.222.160/DataFlowWebservice/api/positions/
     $scope.fillExample = function () {
         var jsonExample =
-            '{\n' + '\"_id\": \"564b38b02968ea0d10ae869b\",\n' + '\"unitId\": 357566000058106,\n' + '\"dateTime\": \"2015-03-09T23:00:02Z\",\n' + '\"rdX\": 158126.109,\n' + '\"rdY\": 380446.031,\n' + ' \"latitudeGps\": 51.4131355,\n' + ' \"longitudeGps\": 5.43213844,\n' + ' \"speed\": 0,\n' + ' \"course\": 31,\n' + ' \"numSatellite\": 7,\n' + ' \"hdop\": 1,\n' + ' \"dopType\": \"Gps\"\n' + '}';
+               '{\n'
+             + '\"_id\": \"564b38b02968ea0d10ae869b\",\n'
+             + '\"unitId\": 357566000058106,\n'
+             + '\"dateTime\": \"2015-03-09T23:00:02Z\",\n'
+             + '\"rdX\": 158126.109,\n'
+             + '\"rdY\": 380446.031,\n'
+             + ' \"latitudeGps\": 51.4131355,\n'
+             + ' \"longitudeGps\": 5.43213844,\n'
+             + ' \"speed\": 0,\n'
+             + ' \"course\": 31,\n'
+             + ' \"numSatellite\": 7,\n'
+             + ' \"hdop\": 1,\n'
+             + ' \"dopType\": \"Gps\"\n'
+             + '}';
 
         var xmlExample =
-            '<?xml version="1.0" encoding="UTF-8" ?>\n' + '<_id>564b38b02968ea0d10ae869b</_id>\n' + '<unitId>357566000058106</unitId>\n' + '<dateTime>2015-03-09T23:00:02Z</dateTime>\n' + '<rdX>158126.109</rdX>\n' + '<rdY>380446.031</rdY>\n' + '<latitudeGps>51.4131355</latitudeGps>\n' + '<longitudeGps>5.43213844</longitudeGps>\n' + '<speed>0</speed>\n' + '<course>31</course>\n' + '<numSatellite>7</numSatellite>\n' + '<hdop>1</hdop>\n' + '<dopType>Gps</dopType>';
+             '<?xml version="1.0" encoding="UTF-8" ?>\n'
+           + '<_id>564b38b02968ea0d10ae869b</_id>\n'
+           + '<unitId>357566000058106</unitId>\n'
+           + '<dateTime>2015-03-09T23:00:02Z</dateTime>\n'
+           + '<rdX>158126.109</rdX>\n'
+           + '<rdY>380446.031</rdY>\n'
+           + '<latitudeGps>51.4131355</latitudeGps>\n'
+           + '<longitudeGps>5.43213844</longitudeGps>\n'
+           + '<speed>0</speed>\n'
+           + '<course>31</course>\n'
+           + '<numSatellite>7</numSatellite>\n'
+           + '<hdop>1</hdop>\n'
+           + '<dopType>Gps</dopType>';
 
         var csvExample =
             '_id,unitId,dateTime,rdX,rdY,latitudeGps,longitudeGps,speed,course,numSatellite,hdop,dopType\n' +
@@ -107,25 +130,26 @@ app.controller('BuyDataController', function ($scope, $http) {
 
     }
 
-    $scope.writeToFile = function (text, filename) {
-        var textFile = null;
-        var data = new Blob([text], {
-            type: 'text/plain'
-        });
+}
 
-        // If we are replacing a previously generated file we need to
-        // manually revoke the object URL to avoid memory leaks.
-        if (textFile !== null) {
-            window.URL.revokeObjectURL(textFile);
-        }
+);
 
-
-        textFile = window.URL.createObjectURL(data);
-        var downloadLink = document.getElementById('downloadLink');
-        downloadLink.download = filename;
-        downloadLink.href = textFile;
-        downloadLink.style.display = 'block';
-
+writeToFile = function (text, filename) {
+    var textFile = null;
+    var data = new Blob([text], {
+        type: 'text/plain'
+    });
+    // If we are replacing a previously generated file we need to
+    // manually revoke the object URL to avoid memory leaks.
+    if (textFile !== null) {
+        window.URL.revokeObjectURL(textFile);
     }
 
-});
+
+    textFile = window.URL.createObjectURL(data);
+    var downloadLink = document.getElementById('downloadLink');
+    downloadLink.download = filename;
+    downloadLink.href = textFile;
+    downloadLink.style.display = 'block';
+
+}
