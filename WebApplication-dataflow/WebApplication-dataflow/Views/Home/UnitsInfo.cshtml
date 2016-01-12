@@ -12,28 +12,6 @@
 
 
 <div ng-app="UnitApp" ng-controller="AnalysedDataController">
-    <div ng-repeat="unitInfo in units">
-        <div ng-click="checkUnitId(unitInfo)">
-            <ul>
-                <li>Unit ID: {{unitInfo.unitId}}</li>
-                <li>Number of satellites: {{unitInfo.numSatellite}}</li>
-                <li>HDOP: {{unitInfo.hdop}}</li>
-                <li>Dop Type: {{unitInfo.dopType}}</li>
-            </ul>
-        </div>
-    </div>
-    <div ng-repeat="detailedInfo in details">
-        <ul>
-            <li>Unit ID: {{detailedInfo.unitId}}</li>
-            <li>Number of satellites: {{detailedInfo.numSatellite}}</li>
-            <li>HDOP: {{detailedInfo.hdop}}</li>
-            <li>Dop Type: {{detailedInfo.dopType}}</li>
-        </ul>
-        <button ng-click="resetHTTP()">Go back</button>
-        
-    </div>
-    <div id="barChartDiv" style="visibility:hidden"></div>
-    <div id="gaugeGraphDiv" style="visibility:hidden"></div>
+    <div id="chartArea"></div>
 </div>
-
 
