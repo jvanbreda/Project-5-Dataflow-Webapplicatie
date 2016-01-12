@@ -186,6 +186,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-WebApplication-dataflow-20151115062645.mdf" />
+    <Content Include="App_Data\aspnet-WebApplication-dataflow-20151115062645_log.ldf">
+      <DependentUpon>aspnet-WebApplication-dataflow-20151115062645.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Dashboard.css" />
@@ -1080,7 +1084,6 @@
     <Content Include="Scripts\version.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Scripts\AngularServices\" />
     <Folder Include="Views\User\" />
     <Folder Include="Views\WebApi\" />

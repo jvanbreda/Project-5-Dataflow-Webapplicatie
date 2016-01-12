@@ -27,25 +27,38 @@ diskSpaceApp.controller("diskSpaceController", ['$scope','HTTPService', '$log',f
 
         var objects = [];
 
+        var status = "";
         var setUnitDiskSpaceData = function (response) {
             console.log("starting iterating!!");
             for (var key in response) {
-                // skip loop if the property is from prototype
-                if (!response.hasOwnProperty(key)) continue;
-                console.log(response[key])
+                
                 var obj = response[key];
-                var unitDiskSpaceItem = {
-                    diskSpacediskSpaceStatus: "",
-                    statusAmount: ""
-                }
+                
                 for (var prop in obj) {
-                    // skip loop if the property is from prototype
-                    if (!obj.hasOwnProperty(prop)) continue;
-
-                    // your code
-                    console.log(prop + " = " + obj[prop]);
                     
-                }
+                    
+                    if (prop == "diskSpaceStatus") {
+                        status = obj[prop];
+                    }else {
+                            switch (status) {
+                                case "Full":
+                                    amountFull = obj[prop];
+                                    break;
+                                case "Empty":
+                                    amountEmpty = obj[prop];
+                                    break;
+                                case "Half full":
+                                    amountHalfFull = obj[prop];
+                                    break;
+                                case "Allmost full":
+                                    amountAllmostFull = obj[prop]
+                                    break;
+                                
+                            }
+                        }
+                        console.log("prop:"+prop + " " + "obj[prop]:"+obj[prop] + " " + "status:"+status);
+                    }
+                
             }       
             
         }
@@ -61,8 +74,6 @@ diskSpaceApp.controller("diskSpaceController", ['$scope','HTTPService', '$log',f
                 y: function (d) { return d.y; },
                 showLabels: true,
                 duration: 500,
-                labelThreshold: 0.01,
-                labelSunbeamLayout: true,
                 legend: {
                     margin: {
                         top: 5,
