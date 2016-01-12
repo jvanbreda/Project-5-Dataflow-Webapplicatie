@@ -76,3 +76,8 @@ footer p {
 .disabled {
     cursor: not-allowed; 
 }
+
+.img-loader {
+    display: block; margin-left: auto; margin-right: auto;
+    padding: 12px;
+}
