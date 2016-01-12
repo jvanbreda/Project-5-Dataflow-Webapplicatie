@@ -1,0 +1,13 @@
+version: 1.0.{build}
+branches:
+  only:
+  - BuyData
+before_build:
+- cmd: nuget restore WebApplication-dataflow
+build:
+  verbosity: minimal
+after_test:
+- cmd: appveyor PushArtifact WebApplication-dataflow\TestApplication-dataflow\bin\Debug\test.log
+artifacts:
+- path: test.log
+  name: test

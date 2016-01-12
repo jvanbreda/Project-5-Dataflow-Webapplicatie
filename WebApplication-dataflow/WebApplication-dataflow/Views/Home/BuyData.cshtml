@@ -5,8 +5,10 @@
 }
 
 <h2>Buy Data</h2>
-<div ng-app="BuyData" ng-controller="SelectController">
+<div ng-app="BuyData" ng-controller="BuyDataController">
     <div id="exampleCode" style="float: right; clear: both">
+        Example code:
+        <br />
         <textarea readonly rows="4" cols="50" ng-model="code"></textarea>
     </div>
 
@@ -16,9 +18,8 @@
         </div>
         <select ng-model="dataSelect" ng-change="update()" ng-hide="stepCount != 0">
             <option value="events">Event data</option>
-            <option value="monitoring">Monitoring data</option>
-            <option value="connection">Connection data</option>
             <option value="positions">Position data</option>
+			<option value="monitorings">Monitoring data</option>
         </select>
         <select ng-model="dataTypeSelect" ng-change="update()" ng-hide="stepCount != 1">
             <option value="XML">XML file</option>
@@ -31,7 +32,8 @@
 
         <button type="button" ng-click="previous()" ng-hide="stepCount == 0">Back</button>
         <button type="button" ng-click="buy()" ng-hide="stepCount != 4">Buy</button>
-    </div>
+        <a id="downloadLink" style="display: none">Download</a>
+</div>
 
 </div>
 @Scripts.Render("~/bundles/buydata")
