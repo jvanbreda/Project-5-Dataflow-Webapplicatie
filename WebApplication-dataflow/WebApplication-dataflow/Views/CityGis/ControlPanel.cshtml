@@ -10,10 +10,13 @@
 <link rel="stylesheet" href="~/Content/nv.d3.css"/>
 
 <h2>ControlPanel CityGis</h2>
-
-<div ng-app="diskSpaceApp" ng-controller="diskSpaceController">
-   
-    <nvd3 data="data" options="options"></nvd3>
+<div ng-app="diskSpaceApp">
+    <div  ng-controller="diskSpaceController">
+        <nvd3 data="data" options="options"></nvd3>
+    </div>
+    <div  ng-controller="diskSpace2Controller">
+        <nvd3 data="data" options="options"></nvd3>
+    </div>
 </div>
 
 

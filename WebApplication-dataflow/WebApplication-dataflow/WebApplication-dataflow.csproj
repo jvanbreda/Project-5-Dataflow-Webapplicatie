@@ -236,7 +236,7 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\AngularControllers\DashboardController.js" />
-    <Content Include="Scripts\AngularControllers\DiskSpaceAnalysis\app.js" />
+    <Content Include="Scripts\AngularControllers\DiskSpaceAnalysis\DiskSpace2Controller.js" />
     <Content Include="Scripts\AngularControllers\DiskSpaceAnalysis\DiskSpaceController.js" />
     <Content Include="Scripts\AngularControllers\DiskSpaceAnalysis\DiskSpaceService.js" />
     <Content Include="Scripts\bootstrap.js" />
