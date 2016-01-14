@@ -137,7 +137,7 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log
                     left: 65
                 },
                 x: function(d){ return d[0]; },
-                y: function(d){ return d[1]; },
+                y: function(d){ return d[1] / 100; },
 
                 color: d3.scale.category10().range(),
                 duration: 300,
@@ -145,7 +145,7 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log
                 clipVoronoi: false,
 
                 xAxis: {
-                    axisLabel: 'X Axis',
+                    axisLabel: 'Time in days',
                     tickFormat: function(d) {
                         return d3.time.format('%m/%d/%y')(new Date(d))
                     },
@@ -154,9 +154,9 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log
                 },
 
                 yAxis: {
-                    axisLabel: 'Y Axis',
+                    axisLabel: 'Diskspace percent used',
                     tickFormat: function(d){
-                        return d3.format(',.1f')(d);
+                        return d3.format('%')(d);
                     },
                     axisLabelDistance: 0
                 }
@@ -165,24 +165,24 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log
 
         $scope.data = [
             {
-                key: "Long",
+                key: "A",
                 values: [[0,10],[1,20], [2,30], [3,40], [4,90]]
                 //,
                 //mean: 250
             },
             {
-                key: "Short",
+                key: "B",
                 values: [[0,30],[1,50],[2,80],[3,50],[4,70]]
                 //,
                 //mean: -60
             },
             {
-                key: "Gross",
+                key: "C",
                 //mean: 125,
                 values: [[0,05],[1,20], [2,30], [3,70], [4,30]]
             },
             {
-                key: "S&P 1500",
+                key: "D",
                 values: [[0,30],[1,80], [2,70], [3,60], [4,40]]
             }
         ];
