@@ -16,8 +16,8 @@ diskSpaceApp.service('HTTPService', function ($http) {
 
 diskSpaceApp.service('HTTPService2', function ($http) {
     var getData = function () {
-        return $http.get("http://localhost:22328/api/UnitDiskSpace/")
-        //return $http.get("http://145.24.222.160/DataFlowAnalyseService/api/UnitDiskSpace/")
+        return $http.get("http://localhost:22328/api/UnitDiskSpace/1")
+        //return $http.get("http://145.24.222.160/DataFlowAnalyseService/api/UnitDiskSpace/1")
         .then(function (response) {
             return response.data.result;
         })
@@ -117,16 +117,43 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log
     dataPromise.then(function (response) {
         $log.info(response);
 
-        var getObjectsFromResponse = function () {
-            for (var diskSpaceItem in response) {
-                var obj = response.diskSpaceItem;
-                for (var i in obj ) {
-                    //console.log(i);
-                }
-            }
-        }
-        
+        var idObject = [];
+        var idRangeObjects = [];
+        var allObjects = [];
+        var lastId;
 
+        var getObjectsFromResponse = function () {
+            console.log("Start iterating bigdata!");
+            for (var key in response) {
+                var obj = response[key];
+                
+                if (obj["unitId"] != lastId) {
+                    lastId = obj["unitId"];
+
+                    if(idRangeObjects.length > 0){
+                        //add array to allObjects and empty idRangeObjects
+                        var idRange = idRangeObjects;
+                        allObjects.push(idRange);
+                        idRangeObjects = [];
+                    }
+                    
+                    idRangeObjects.push(obj);
+
+                } else {
+                    idRangeObjects.push(obj);
+                }              
+            }
+            $log.info(allObjects);
+            //for (var key in allObjects) {
+            //    var myObj = allObjects[key];
+            //    for(var j in myObj){
+            //        console.log(j);
+            //    }
+            //}
+        }
+                
+        getObjectsFromResponse();
+        
         $scope.options = {
             chart: {
                 type: 'lineChart',
