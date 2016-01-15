@@ -41,14 +41,11 @@ diskSpaceApp.controller("diskSpaceController", ['$scope','HTTPService', '$log',f
 
         var status = "";
         var setUnitDiskSpaceData = function (response) {
-            console.log("starting iterating!!");
             for (var key in response) {
                 
                 var obj = response[key];
                 
-                for (var prop in obj) {
-                    
-                    
+                for (var prop in obj) {                  
                     if (prop == "diskSpaceStatus") {
                         status = obj[prop];
                     }else {
@@ -68,9 +65,7 @@ diskSpaceApp.controller("diskSpaceController", ['$scope','HTTPService', '$log',f
                                 
                             }
                         }
-                        console.log("prop:"+prop + " " + "obj[prop]:"+obj[prop] + " " + "status:"+status);
-                    }
-                
+                    }                
             }       
             
         }
@@ -120,10 +115,16 @@ diskSpaceApp.controller("diskSpaceController", ['$scope','HTTPService', '$log',f
 diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log', function ($scope, HTTPService, $log) {
     var dataPromise = HTTPService.getData();
     dataPromise.then(function (response) {
-        $scope.init = response.data;
         $log.info(response);
 
-
+        var getObjectsFromResponse = function () {
+            for (var diskSpaceItem in response) {
+                var obj = response.diskSpaceItem;
+                for (var i in obj ) {
+                    //console.log(i);
+                }
+            }
+        }
         
 
         $scope.options = {
