@@ -121,27 +121,25 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log
         var idRangeObjects = [];
         var allObjects = [];
         var lastId;
+        var counter = 0;
 
         var getObjectsFromResponse = function () {
             console.log("Start iterating bigdata!");
             for (var key in response) {
                 var obj = response[key];
-                
                 if (obj["unitId"] != lastId) {
                     lastId = obj["unitId"];
-
                     if(idRangeObjects.length > 0){
                         //add array to allObjects and empty idRangeObjects
                         var idRange = idRangeObjects;
                         allObjects.push(idRange);
                         idRangeObjects = [];
-                    }
-                    
-                    idRangeObjects.push(obj);
-
-                } else {
-                    idRangeObjects.push(obj);
-                }              
+                        counter = 0;
+                    }                                        
+                }
+                var graphObject = [counter, obj["percentUsed"]];
+                idRangeObjects.push(graphObject);
+                counter++;
             }
             $log.info(allObjects);
             //for (var key in allObjects) {
@@ -151,9 +149,26 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log
             //    }
             //}
         }
-                
+        var putObjectsInGraph = function () {            
+            for (var key in allObjects) {
+                var obj = allObjects[key];//obj = [[]]
+                var graphObject = {
+                    key: "",
+                    values: []
+                }
+                graphObject.key = key;
+                graphObject.values = obj;
+                console.log(obj);
+                $scope.data.push(graphObject);
+                //console.log(obj[1]);
+            }
+            
+            
+        }
+        
         getObjectsFromResponse();
         
+
         $scope.options = {
             chart: {
                 type: 'lineChart',
@@ -192,28 +207,25 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log
         };
 
         $scope.data = [
-            {
-                key: "A",
-                values: [[0,10],[1,20], [2,30], [3,40], [4,90]]
-                //,
-                //mean: 250
-            },
-            {
-                key: "B",
-                values: [[0,30],[1,50],[2,80],[3,50],[4,70]]
-                //,
-                //mean: -60
-            },
-            {
-                key: "C",
-                //mean: 125,
-                values: [[0,05],[1,20], [2,30], [3,70], [4,30]]
-            },
-            {
-                key: "D",
-                values: [[0,30],[1,80], [2,70], [3,60], [4,40]]
-            }
+        //    {
+        //        key: "A",
+        //        values: [[0,10],[1,20], [2,30], [3,40], [4,90]]
+        //    },
+        //    {
+        //        key: "B",
+        //        values: [[0,30],[1,50],[2,80],[3,50],[4,70]]
+        //    },
+        //    {
+        //        key: "C",
+        //        values: [[0, 05], [1, 20], [2, 30], [3, 70], [4, 30]]             
+        //    },
+        //    {
+        //        key: "D",
+        //        values: [[0,30],[1,80], [2,70], [3,60], [4,40]]
+        //    }
         ];
+
+        putObjectsInGraph();
     })
 }]);
 
