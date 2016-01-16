@@ -171,6 +171,10 @@
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\Users\CityGisController.cs" />
+    <Compile Include="Controllers\Users\CommercialController.cs" />
+    <Compile Include="Controllers\Users\FleetManagerController.cs" />
+    <Compile Include="Controllers\Users\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -197,12 +201,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\angular-fusioncharts.js" />
+    <Content Include="Scripts\angular-fusioncharts.min.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\AngularControllers\ConnectionController.js" />
     <Content Include="Scripts\AngularControllers\DashboardController.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\Webapp Dataflow.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\buydata.js" />
     <Content Include="Scripts\html2canvas.js" />
     <Content Include="Scripts\html2canvas.min.js" />
     <Content Include="Scripts\html2canvas.svg.js" />
@@ -235,6 +243,7 @@
     <Content Include="Scripts\plugins\total_pages.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\xml2json.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -275,6 +284,9 @@
     <Content Include="Views\Home\CommercialControlPanel.cshtml" />
     <Content Include="Views\Home\FleetManagerControlPanel.cshtml" />
     <Content Include="Views\Shared\_AccountLayout.cshtml" />
+    <Content Include="Views\CityGis\ControlPanel.cshtml" />
+    <Content Include="Views\Commercial\ControlPanel.cshtml" />
+    <Content Include="Views\FleetManager\ControlPanel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
