@@ -34,8 +34,9 @@ app.controller('SelectController', function ($scope, $http) {
             ], "rows": []
         };
 
-        $http.get("http://localhost:22328/api/Ignition" + "/" + startDate + "/" + endDate).then(function (response) {
+        $http.get("http://145.24.222.160/DataFlowAnalyseService/api/Ignition" + "/" + startDate + "/" + endDate).then(function (response) {
             for (var i = 0; i < response.data.result.length; i++) {
+
                 console.log(response.data.result[i]);
                 $scope.chartObject.data["rows"][i] = { c: [{ v: response.data.result[i]["unitId"] }, { v: response.data.result[i]["ignitionCount"] }] };
             }
