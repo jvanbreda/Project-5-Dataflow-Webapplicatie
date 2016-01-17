@@ -15,6 +15,11 @@ namespace WebApplication_dataflow.Controllers {
             return View();
         }
 
+        public ActionResult Ignition()
+        {
+            return View();
+        }
+
         public ActionResult About() {
             ViewBag.Message = "Your application description page.";
 

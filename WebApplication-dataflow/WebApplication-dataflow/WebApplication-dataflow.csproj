@@ -206,6 +206,7 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\AngularControllers\ConnectionController.js" />
     <Content Include="Scripts\AngularControllers\DashboardController.js" />
+    <Content Include="Scripts\AngularControllers\IgnitionController.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\Webapp Dataflow.pubxml" />
@@ -287,9 +288,11 @@
     <Content Include="Views\CityGis\ControlPanel.cshtml" />
     <Content Include="Views\Commercial\ControlPanel.cshtml" />
     <Content Include="Views\FleetManager\ControlPanel.cshtml" />
+    <Content Include="Views\Home\Ignition.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Ignition\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
