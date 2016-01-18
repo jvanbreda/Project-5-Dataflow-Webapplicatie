@@ -1,6 +1,6 @@
 ﻿var app = angular.module('dataflowApp', ["googlechart"]);
 
-app.controller('dashboardController', function ($scope, $http) {
+app.controller('MaintenanceController', function ($scope, $http) {
     function Record(unitId, kilometersTravelled) {
         this.unitId = unitId;
         this.kilometersTravelled = kilometersTravelled;

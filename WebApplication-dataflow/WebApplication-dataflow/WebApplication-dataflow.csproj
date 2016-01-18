@@ -207,7 +207,7 @@
     <Content Include="Scripts\angular-fusioncharts.min.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\AngularControllers\ConnectionController.js" />
-    <Content Include="Scripts\AngularControllers\DashboardController.js" />
+    <Content Include="Scripts\AngularControllers\MaintenanceController.js" />
     <Content Include="Scripts\AngularControllers\IgnitionController.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -283,14 +283,12 @@
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
     <Content Include="Views\Home\BuyData.cshtml" />
-    <Content Include="Views\Home\CityGisControlPanel.cshtml" />
-    <Content Include="Views\Home\CommercialControlPanel.cshtml" />
-    <Content Include="Views\Home\FleetManagerControlPanel.cshtml" />
     <Content Include="Views\Shared\_AccountLayout.cshtml" />
     <Content Include="Views\CityGis\ControlPanel.cshtml" />
     <Content Include="Views\Commercial\ControlPanel.cshtml" />
     <Content Include="Views\FleetManager\ControlPanel.cshtml" />
     <Content Include="Views\Home\Ignition.cshtml" />
+    <Content Include="Views\FleetManager\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
