@@ -20,7 +20,7 @@
                     </div>
                     <div id="collapse1" class="panel-collapse collapse in">
                         <div class="panel-body">
-                            <div google-chart chart="chartObject" style="height:600px; width:100%;"></div>
+                            <div id="maintenanceGraph" google-chart chart="chartObject" style="height:600px; width:100%;"></div>
                             <p>
                                 <div class="form-group">
                                     <label for="begin">Begin timestamp:</label>
@@ -31,6 +31,7 @@
                                     <input type="text" ng-model="endTimestamp" class="form-control" id="end">
                                 </div>
                                 <button type="button" ng-disabled="!hideLoadingMaintenance" ng-click="loadMaitenance()" class="btn btn-default">Update</button>
+                                <button type="button" onclick="PdfGenerator.GenerateFromHtmlFancy('test', ['maintenanceGraph'])" class="btn btn-default">Generate pdf</button>
                             </p>
                         </div>
                     </div>
