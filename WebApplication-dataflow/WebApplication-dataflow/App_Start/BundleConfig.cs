@@ -39,8 +39,8 @@ namespace WebApplication_dataflow
                       "~/Content/site.css",
                       "~/Content/Home.css"));
 
-            bundles.Add(new ScriptBundle("~/bundles/dashboardController").Include(
-                        "~/Scripts/AngularControllers/DashboardController.js",
+            bundles.Add(new ScriptBundle("~/bundles/FleetManagerController").Include(
+                        "~/Scripts/AngularControllers/MaintenanceController.js",
                         "~/Scripts/AngularControllers/ConnectionController.js",
                         "~/Scripts/AngularControllers/IgnitionController.js"));
 
