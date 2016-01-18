@@ -21,18 +21,36 @@
                     <div id="collapse1" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <div id="maintenanceGraph" google-chart chart="chartObject" style="height:600px; width:100%;"></div>
-                            <p>
+                            <hr />
+                            <form name="maintenanceForm">
+                                <h2>Interval</h2>
                                 <div class="form-group">
-                                    <label for="begin">Begin timestamp:</label>
-                                    <input type="text" ng-model="beginTimestamp" class="form-control" id="begin">
+                                    <label for="begin">Begin:</label>
+                                    <input name="beginTime" type="datetime-local" placeholder="yyyy-MM-ddTHH:mm:ss" ng-model="beginTime" class="form-control" id="begin" required>
+                                    <div role="alert">
+                                        <span class="error" ng-show="maintenanceForm.beginTime.$error.required">
+                                            Required!
+                                        </span>
+                                        <span class="error" ng-show="maintenanceForm.beginTime.$error.datetimelocal">
+                                            Not a valid date!
+                                        </span>
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="end">End timestamp:</label>
-                                    <input type="text" ng-model="endTimestamp" class="form-control" id="end">
+                                    <label for="end">End:</label>
+                                    <input name="endTime" type="datetime-local" placeholder="yyyy-MM-ddTHH:mm:ss" ng-model="endTime" class="form-control" id="end" required>
+                                    <div role="alert">
+                                        <span class="error" ng-show="maintenanceForm.endTime.$error.required">
+                                            Required!
+                                        </span>
+                                        <span class="error" ng-show="maintenanceForm.endTime.$error.datetimelocal">
+                                            Not a valid date!
+                                        </span>
+                                    </div>
                                 </div>
-                                <button type="button" ng-disabled="!hideLoadingMaintenance" ng-click="loadMaitenance()" class="btn btn-default">Update</button>
+                                <button type="button" ng-disabled="!hideLoadingMaintenance || maintenanceForm.beginTime.$error.datetimelocal || maintenanceForm.endTime.$error.datetimelocal" ng-click="loadMaitenance()" class="btn btn-default">Update</button>
                                 <button type="button" onclick="PdfGenerator.GenerateFromHtmlFancy('test', ['maintenanceGraph'])" class="btn btn-default">Generate pdf</button>
-                            </p>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -46,6 +64,12 @@
                     </h4>
                 </div>
                 <div id="collapseMaintenance" class="panel-collapse collapse in">
+                    <div ng-hide="hideLoadingMaintenance" class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar"
+                             aria-valuenow="{{ maintenanceItemsLoaded }}" aria-valuemin="0" aria-valuemax="{{ maintenance.length }}" style="width:{{ (maintenanceItemsLoaded / maintenance.length) * 100 }}%">
+                            {{ (maintenanceItemsLoaded / maintenance.length) * 100 | number:0 }}%
+                        </div>
+                    </div>
                     <ul class="list-group">
                         <li class="list-group-item" ng-repeat="unit in maintenance" ng-if="unit.kilometersTravelled != -1">
                             {{ "Unit " + unit.unitId + " has driven " + unit.kilometersTravelled + " km"}}

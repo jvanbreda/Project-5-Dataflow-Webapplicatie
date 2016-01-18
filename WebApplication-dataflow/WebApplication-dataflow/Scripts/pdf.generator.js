@@ -96,7 +96,6 @@ var PdfGenerator = {
         pdfDocument.text(185, 290, "Pages: ".concat(renderElements.length));
         //var i = 0;
         function recursiveAddHtml(i) {
-            console.log("passed!");
             // Voegt een extra pagina toe aan het pdf document.
             pdfDocument.addPage();
             // Maakt van het opgegeven html element een canvas, dit canvas wordt in het pdf gezet. Dit zorgt ervoor dat grafieken en afbeeldingen mee genomen worden.
