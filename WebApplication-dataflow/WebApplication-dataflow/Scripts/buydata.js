@@ -11,6 +11,7 @@ app.controller('SelectController', function ($scope, $http) {
     $scope.stepCount = 0;
 
     $scope.update = function () {
+        console.log($scope.dateFrom);
         var guideSteps = angular.element(document.querySelector('#guideSteps'));
 
         switch ($scope.stepCount) {
@@ -47,13 +48,18 @@ app.controller('SelectController', function ($scope, $http) {
 
     $scope.buy = function () {
         var textContent = null;
+        var filename = "default.txt";
+        var beginDate = $scope.dateFrom.getFullYear() + "-" + ($scope.dateFrom.getMonth() + 1) + "-" + $scope.dateFrom.getDate();
+        var endDate = $scope.dateTo.getFullYear() + "-" + ($scope.dateTo.getMonth() + 1) + "-" + $scope.dateTo.getDate();
+
         var filename = 'data.txt';
+
         $.ajax({
-            url: "http://145.24.222.160/DataFlowWebservice/api/" + $scope.dataSelect,
+            url: "http://145.24.222.160/DataFlowWebservice/api/" + $scope.dataSelect + "/" + beginDate + "/" + endDate,
             dataType: 'text',
             success: function (data) {
                 var x2js = new X2JS();
-                switch($scope.dataTypeSelect){
+                switch ($scope.dataTypeSelect) {
                     case 'JSON':
                         textContent = data;
                         filename = 'data.json';
@@ -64,7 +70,7 @@ app.controller('SelectController', function ($scope, $http) {
                         break;
                     case 'CSV':
                         break;
-                
+
                 }
                 writeToFile(textContent, filename);
 
@@ -133,8 +139,8 @@ writeToFile = function (text, filename) {
     var data = new Blob([text], {
         type: 'text/plain'
     });
-    // If we are replacing a previously generated file we need to
-    // manually revoke the object URL to avoid memory leaks.
+    //If we are replacing a previously generated file we need to
+    //manually revoke the object URL to avoid memory leaks.
     if (textFile !== null) {
         window.URL.revokeObjectURL(textFile);
     }

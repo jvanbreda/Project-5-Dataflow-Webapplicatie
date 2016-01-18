@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "BuyData";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
 <h2>Buy Data</h2>
@@ -21,6 +21,7 @@
             <option value="monitorings">Monitoring data</option>
             <option value="connection">Connection data</option>
             <option value="positions">Position data</option>
+			<option value="monitorings">Monitoring data</option>
         </select>
         <select ng-model="dataTypeSelect" ng-change="update()" ng-hide="stepCount != 1">
             <option value="XML">XML file</option>

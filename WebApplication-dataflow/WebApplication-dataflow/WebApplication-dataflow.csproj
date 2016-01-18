@@ -193,8 +193,6 @@
     <Content Include="Content\Images\dataflow_logo.png" />
     <Content Include="Content\Images\dataflow_logo_cropped.png" />
     <Content Include="Content\Images\entry_background.png" />
-    <Content Include="Content\Images\loading.gif" />
-    <Content Include="Content\Images\loading_dots.gif" />
     <Content Include="Content\Images\placeholder.png" />
     <Content Include="Content\Images\triangular.png" />
     <Content Include="Content\Images\triangular_%402X.png" />
@@ -206,7 +204,9 @@
     <Content Include="Scripts\angular-fusioncharts.js" />
     <Content Include="Scripts\angular-fusioncharts.min.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\AngularControllers\ConnectionController.js" />
     <Content Include="Scripts\AngularControllers\DashboardController.js" />
+    <Content Include="Scripts\AngularControllers\IgnitionController.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\Webapp Dataflow.pubxml" />
@@ -226,7 +226,6 @@
     <Content Include="Scripts\jspdf.js" />
     <Content Include="Scripts\jspdf.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\morris.min.js" />
     <Content Include="Scripts\pdf.generator.js" />
     <Content Include="Scripts\plugins\addhtml.js" />
     <Content Include="Scripts\plugins\addimage.js" />
@@ -289,10 +288,11 @@
     <Content Include="Views\CityGis\ControlPanel.cshtml" />
     <Content Include="Views\Commercial\ControlPanel.cshtml" />
     <Content Include="Views\FleetManager\ControlPanel.cshtml" />
+    <Content Include="Views\Home\Ignition.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\User\" />
+    <Folder Include="Views\Ignition\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
