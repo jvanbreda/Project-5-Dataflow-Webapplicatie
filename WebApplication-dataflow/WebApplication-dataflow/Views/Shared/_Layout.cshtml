@@ -26,6 +26,10 @@
                     <li><a class="scroll-to" href="#" data-target="home">Home</a></li>
                     <li><a class="scroll-to" href="#" data-target="services">Services</a></li>
                     <li><a class="scroll-to" href="#" data-target="pricing">Pricing</a></li>
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Unit Information", "UnitsInfo", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
