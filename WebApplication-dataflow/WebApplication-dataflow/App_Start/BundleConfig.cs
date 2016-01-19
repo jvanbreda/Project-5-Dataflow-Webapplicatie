@@ -39,9 +39,10 @@ namespace WebApplication_dataflow
                       "~/Content/site.css",
                       "~/Content/Home.css"));
 
-            bundles.Add(new ScriptBundle("~/bundles/dashboardController").Include(
-                        "~/Scripts/AngularControllers/DashboardController.js",
-                        "~/Scripts/AngularControllers/ConnectionController.js"));
+            bundles.Add(new ScriptBundle("~/bundles/FleetManagerController").Include(
+                        "~/Scripts/AngularControllers/MaintenanceController.js",
+                        "~/Scripts/AngularControllers/ConnectionController.js",
+                        "~/Scripts/AngularControllers/IgnitionController.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
