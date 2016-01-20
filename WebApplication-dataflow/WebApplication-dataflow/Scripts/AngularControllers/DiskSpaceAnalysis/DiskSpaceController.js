@@ -137,25 +137,40 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log
                         counter = 0;
                     }                                        
                 }
-                var graphObject = [counter, obj["percentUsed"]];//TODO make it the object again and use data in graph
+                var graphObject = [counter, obj];//TODO make it the object again and use data in graph
                 idRangeObjects.push(graphObject);
                 counter++;
             }
             $log.info(allObjects);
         }
-        var putObjectsInGraph = function () {            
-            for (var key in allObjects) {
-                var obj = allObjects[key];
+        var putObjectsInGraph = function () {
+            var graphValues = [];
+            var unitId = "";
 
+            console.log("start iterating!");
+            for (var key in allObjects) {
+                var obj = allObjects[key]; 
+                for (var i in obj) {
+                    var obj2 = obj[i];//obj = [counter, object]
+                    //console.log(obj2);
+                    var graphItem = obj2[1];
+                    //console.log(graphItem["percentUsed"]);
+                    graphValues.push([obj2[0], graphItem["percentUsed"]]);
+                    unitId = graphItem["unitId"];
+                }
                 var graphObject = {
                     key: "",
                     values: []
                 }
-                graphObject.key = key;
-                graphObject.values = obj;
-                console.log(obj);
+                graphObject.key = unitId;
+                graphObject.values = graphValues;
                 $scope.data.push(graphObject);
-                //console.log(obj[1]);
+
+                console.log(graphObject);
+
+                graphValues = [];
+                unitId = "";
+                console.log("end of iterating!");
             }
             
             
