@@ -232,6 +232,7 @@
     <Content Include="Scripts\jspdf.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\morris.min.js" />
+    <Content Include="Scripts\papaparse.js" />
     <Content Include="Scripts\pdf.generator.js" />
     <Content Include="Scripts\plugins\addhtml.js" />
     <Content Include="Scripts\plugins\addimage.js" />
