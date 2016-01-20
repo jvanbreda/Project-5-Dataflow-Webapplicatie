@@ -137,7 +137,7 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log
                         counter = 0;
                     }                                        
                 }
-                var graphObject = [counter, obj];//TODO make it the object again and use data in graph
+                var graphObject = [counter, obj];
                 idRangeObjects.push(graphObject);
                 counter++;
             }
@@ -152,9 +152,7 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log
                 var obj = allObjects[key]; 
                 for (var i in obj) {
                     var obj2 = obj[i];//obj = [counter, object]
-                    //console.log(obj2);
                     var graphItem = obj2[1];
-                    //console.log(graphItem["percentUsed"]);
                     graphValues.push([obj2[0], graphItem["percentUsed"]]);
                     unitId = graphItem["unitId"];
                 }
