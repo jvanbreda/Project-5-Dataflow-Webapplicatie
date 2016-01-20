@@ -137,21 +137,16 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log
                         counter = 0;
                     }                                        
                 }
-                var graphObject = [counter, obj["percentUsed"]];
+                var graphObject = [counter, obj["percentUsed"]];//TODO make it the object again and use data in graph
                 idRangeObjects.push(graphObject);
                 counter++;
             }
             $log.info(allObjects);
-            //for (var key in allObjects) {
-            //    var myObj = allObjects[key];
-            //    for(var j in myObj){
-            //        console.log(j);
-            //    }
-            //}
         }
         var putObjectsInGraph = function () {            
             for (var key in allObjects) {
-                var obj = allObjects[key];//obj = [[]]
+                var obj = allObjects[key];
+
                 var graphObject = {
                     key: "",
                     values: []
@@ -190,7 +185,7 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log
                 xAxis: {
                     axisLabel: 'Time in days',
                     tickFormat: function(d) {
-                        return d3.time.format('%m/%d/%y')(new Date(d))
+                        return d3.time.format('%d%m%y')(new Date(d))
                     },
                     showMaxMin: false,
                     staggerLabels: true
@@ -206,24 +201,7 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log
             }
         };
 
-        $scope.data = [
-        //    {
-        //        key: "A",
-        //        values: [[0,10],[1,20], [2,30], [3,40], [4,90]]
-        //    },
-        //    {
-        //        key: "B",
-        //        values: [[0,30],[1,50],[2,80],[3,50],[4,70]]
-        //    },
-        //    {
-        //        key: "C",
-        //        values: [[0, 05], [1, 20], [2, 30], [3, 70], [4, 30]]             
-        //    },
-        //    {
-        //        key: "D",
-        //        values: [[0,30],[1,80], [2,70], [3,60], [4,40]]
-        //    }
-        ];
+        $scope.data = [];
 
         putObjectsInGraph();
     })
