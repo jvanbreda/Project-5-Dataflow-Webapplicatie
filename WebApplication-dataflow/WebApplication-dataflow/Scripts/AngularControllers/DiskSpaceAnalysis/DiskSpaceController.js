@@ -112,7 +112,7 @@ diskSpaceApp.controller("diskSpaceController", ['$scope','HTTPService', '$log',f
         ];
     })
 }]);
-diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log', function ($scope, HTTPService, $log) {
+diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', 'HTTPService', '$log', function ($scope, HTTPService ,HTTPService2, $log) {
     var dataPromise = HTTPService.getData();
     dataPromise.then(function (response) {
         $log.info(response);
@@ -124,7 +124,6 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log
         var counter = 0;
 
         var getObjectsFromResponse = function () {
-            console.log("Start iterating bigdata!");
             for (var key in response) {
                 var obj = response[key];
                 if (obj["unitId"] != lastId) {
@@ -147,7 +146,6 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log
             var graphValues = [];
             var unitId = "";
 
-            console.log("start iterating!");
             for (var key in allObjects) {
                 var obj = allObjects[key]; 
                 for (var i in obj) {
@@ -164,17 +162,36 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log
                 graphObject.values = graphValues;
                 $scope.data.push(graphObject);
 
-                console.log(graphObject);
-
                 graphValues = [];
                 unitId = "";
-                console.log("end of iterating!");
             }
             
             
         }
+
+        var biggestObject = [];
+        var getBiggestDate = function () {
+            //get longest date range per unitId    
+            for (var unitIdObject in allObjects) {
+                var obj = allObjects[unitIdObject];
+                if(obj.length > biggestObject.length){
+                    biggestObject = obj;
+                }           
+            }
+        }
+        var putBiggestDateInGraph = function () {           
+            for (var date in biggestObject) {
+                var obj = biggestObject[date];
+                var obj2 = obj[1];
+                console.log(obj2.endTime);//prints every timestamp from longest unitId range
+                return obj2.endTime
+            }
+        }
         
         getObjectsFromResponse();
+        getBiggestDate();
+        putBiggestDateInGraph();
+
         
 
         $scope.options = {
@@ -200,7 +217,7 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', '$log
                     tickFormat: function(d) {
                         return d3.time.format('%d%m%y')(new Date(d))
                     },
-                    showMaxMin: false,
+                    showMaxMin: true,
                     staggerLabels: true
                 },
 
