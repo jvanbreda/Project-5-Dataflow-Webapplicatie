@@ -20,7 +20,8 @@ namespace WebApplication_dataflow
 
             bundles.Add(new ScriptBundle("~/bundles/buydata").Include(
                         "~/Scripts/buydata.js",
-                        "~/Scripts/xml2json.js"));
+                        "~/Scripts/xml2json.js",
+                        "~/Scripts/papaparse.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angular").Include(
                         "~/Scripts/angular.min.js"));
@@ -40,7 +41,9 @@ namespace WebApplication_dataflow
                       "~/Content/Home.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/FleetManagerController").Include(
+                        "~/Scripts/AngularControllers/Config/Config.js",
                         "~/Scripts/AngularControllers/MaintenanceController.js",
+                        "~/Scripts/AngularControllers/AlertController.js",
                         "~/Scripts/AngularControllers/ConnectionController.js",
                         "~/Scripts/AngularControllers/IgnitionController.js"));
 

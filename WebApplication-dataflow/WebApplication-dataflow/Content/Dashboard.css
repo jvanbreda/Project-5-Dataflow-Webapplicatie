@@ -85,3 +85,36 @@ footer p {
 .error {
     color: red;
 }
+
+.alert-item-red {
+    font-family: 'Roboto', sans-serif;
+    background-color: #E84C3D;
+    background-image: url("Images/warning_icon.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    color: white;
+}
+
+.alert-item-green {
+    background-color: #1ABC9C;
+    background-image: url("Images/warning_icon.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    color: white;
+}
+
+.alert-item-blue {
+    background-color: #3598DB;
+    background-image: url("Images/warning_icon.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    color: white;
+}
+
+.alert-item-purple {
+    background-color: #9A59B5;
+    background-image: url("Images/warning_icon.png");
+    background-repeat: no-repeat;
+    background-position: right center;
+    color: white;
+}

@@ -206,6 +206,7 @@
     <Content Include="Content\Images\triangular_light.png" />
     <Content Include="Content\jasmine\jasmine.css" />
     <Content Include="Content\jasmine\jasmine_favicon.png" />
+    <Content Include="Content\Images\warning_icon.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -213,6 +214,8 @@
     <Content Include="Scripts\angular-fusioncharts.js" />
     <Content Include="Scripts\angular-fusioncharts.min.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\AngularControllers\AlertController.js" />
+    <Content Include="Scripts\AngularControllers\Config\Config.js" />
     <Content Include="Scripts\AngularControllers\ConnectionController.js" />
     <Content Include="Scripts\AngularControllers\MaintenanceController.js" />
     <Content Include="Scripts\AngularControllers\IgnitionController.js" />
@@ -1023,6 +1026,8 @@
     <Content Include="Scripts\jspdf.js" />
     <Content Include="Scripts\jspdf.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\morris.min.js" />
+    <Content Include="Scripts\papaparse.js" />
     <Content Include="Scripts\pdf.generator.js" />
     <Content Include="Scripts\plugins\addhtml.js" />
     <Content Include="Scripts\plugins\addimage.js" />
@@ -1039,6 +1044,16 @@
     <Content Include="Scripts\plugins\standard_fonts_metrics.js" />
     <Content Include="Scripts\plugins\svg.js" />
     <Content Include="Scripts\plugins\total_pages.js" />
+    <Content Include="Scripts\rasterizeHTML\browser.js" />
+    <Content Include="Scripts\rasterizeHTML\document2svg.js" />
+    <Content Include="Scripts\rasterizeHTML\documentHelper.js" />
+    <Content Include="Scripts\rasterizeHTML\documentUtil.js" />
+    <Content Include="Scripts\rasterizeHTML\index.js" />
+    <Content Include="Scripts\rasterizeHTML\mediaQueryHelper.js" />
+    <Content Include="Scripts\rasterizeHTML\proxies.js" />
+    <Content Include="Scripts\rasterizeHTML\rasterize.js" />
+    <Content Include="Scripts\rasterizeHTML\svg2image.js" />
+    <Content Include="Scripts\rasterizeHTML\util.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\xml2json.js" />
