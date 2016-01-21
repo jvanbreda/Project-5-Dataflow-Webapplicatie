@@ -8,11 +8,6 @@ namespace WebApplication_dataflow.Controllers.Users
 {
     public abstract class UserController : Controller
     {
-        // GET: User
-        public ActionResult Index()
-        {
-            return View();
-        }
         public ActionResult ControlPanel()
         {
             return View();

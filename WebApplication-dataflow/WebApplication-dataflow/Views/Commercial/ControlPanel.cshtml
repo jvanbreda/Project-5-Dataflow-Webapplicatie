@@ -1,7 +1,52 @@
-﻿
-@{
-    ViewBag.Title = "ControlPanel";
+﻿@{
+    ViewBag.Title = "Commercial Dashboard";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 
-<h2>ControlPanel</h2>
+<h1>@ViewBag.Title</h1>
+<hr />
+<div ng-app="dataflowApp" ng-controller="BuyDataController">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">Buy data</div>
+                <div class="panel-body">
+                    <div id="guideSteps">
+                        <p>1. Select the data you wish to buy.</p>
+                    </div>
+                    <select ng-model="dataSelect" ng-hide="stepCount != 0">
+                        <option value="events">Event data</option>
+                        <option value="positions">Position data</option>
+                        <option value="monitorings">Monitoring data</option>
+                    </select>
+                    <select ng-model="dataTypeSelect" ng-hide="stepCount != 1">
+                        <option value="XML">XML file</option>
+                        <option value="JSON">JSON file</option>
+                        <option value="CSV">CSV file</option>
+                    </select>
+
+                    <input type="date" ng-model="dateFrom" ng-hide="stepCount != 2">
+                    <input type="date" ng-model="dateTo" ng-hide="stepCount != 3">
+
+                    <button type="button" ng-click="previous()" ng-hide="stepCount == 0">Back</button>
+                    <button type="button" ng-click="update()" ng-hide="stepCount == 3">Next</button>
+                    <button type="button" ng-click="buy()" ng-hide="stepCount != 3">Buy</button>
+                    <a id="downloadLink" style="display: none">Download</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Example code</div>
+                <div class="panel-body">
+                    <div id="exampleCode" style="width: 100%;">
+                        <textarea readonly rows="4" cols="50" ng-model="code"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/CommercialController")
 

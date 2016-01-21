@@ -194,9 +194,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Dashboard.css" />
     <Content Include="Content\Home.css" />
+    <Content Include="Content\Images\connection_icon.png" />
     <Content Include="Content\Images\dataflow_logo.jpg" />
     <Content Include="Content\Images\dataflow_logo.png" />
     <Content Include="Content\Images\dataflow_logo_cropped.png" />
+    <Content Include="Content\Images\disk_icon.png" />
     <Content Include="Content\Images\entry_background.png" />
     <Content Include="Content\Images\loading.gif" />
     <Content Include="Content\Images\loading_dots.gif" />
@@ -204,6 +206,7 @@
     <Content Include="Content\Images\triangular.png" />
     <Content Include="Content\Images\triangular_%402X.png" />
     <Content Include="Content\Images\triangular_light.png" />
+    <Content Include="Content\Images\wrench_icon.png" />
     <Content Include="Content\jasmine\jasmine.css" />
     <Content Include="Content\jasmine\jasmine_favicon.png" />
     <Content Include="Content\Images\warning_icon.png" />
@@ -1093,22 +1096,17 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Shared\_DashboardLayout.cshtml" />
-    <Content Include="Views\Home\BuyData.cshtml" />
     <Content Include="Views\Shared\_AccountLayout.cshtml" />
     <Content Include="Views\CityGis\ControlPanel.cshtml" />
     <Content Include="Views\Commercial\ControlPanel.cshtml" />
     <Content Include="Views\FleetManager\ControlPanel.cshtml" />
-    <Content Include="Views\Home\Ignition.cshtml" />
-    <Content Include="Views\FleetManager\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\version.json" />
-    <Content Include="Views\Home\UnitsInfo.cshtml" />
     <Content Include="Views\Jasmine\SpecRunner.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="JavaScript\" />
     <Folder Include="Views\Ignition\" />
     <Folder Include="Views\User\" />
   </ItemGroup>

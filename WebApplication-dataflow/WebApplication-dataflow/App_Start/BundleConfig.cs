@@ -40,11 +40,23 @@ namespace WebApplication_dataflow
                       "~/Content/site.css",
                       "~/Content/Home.css"));
 
+            bundles.Add(new ScriptBundle("~/bundles/CommercialController").Include(
+                        "~/Scripts/AngularControllers/Config/Config.js",
+                        "~/Scripts/AngularControllers/AlertController.js",
+                        "~/Scripts/buydata.js",
+                        "~/Scripts/xml2json.js",
+                        "~/Scripts/papaparse.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/CityGisController").Include(
+                        "~/Scripts/AngularControllers/Config/Config.js",
+                        "~/Scripts/AngularControllers/AlertController.js",
+                        "~/Scripts/AngularControllers/ConnectionController.js",
+                        "~/Scripts/AngularControllers/UnitInformationController.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/FleetManagerController").Include(
                         "~/Scripts/AngularControllers/Config/Config.js",
                         "~/Scripts/AngularControllers/MaintenanceController.js",
                         "~/Scripts/AngularControllers/AlertController.js",
-                        "~/Scripts/AngularControllers/ConnectionController.js",
                         "~/Scripts/AngularControllers/IgnitionController.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

@@ -1,9 +1,5 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
-@{
-    ViewBag.Title = "Dashboard";
+﻿@{
+    ViewBag.Title = "Fleet Manager Dashboard";
     Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 <h1>@ViewBag.Title</h1>
@@ -14,30 +10,30 @@
             <div class="col-sm-3">
                 <div class="well well-lg alert-item-red">
                     <h1>{{ maintenanceWarnings }}</h1>
-                    <h4>Maintenance warnings</h4>
+                    <h4>Units should get a <a href="https://en.wikipedia.org/wiki/MOT_test" target="_blank">M.O.T.</a> test</h4>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="well well-lg alert-item-green">
-                    <h1>2</h1>
-                    <h4>Warnings</h4>
+                    <h1>{{ unitInformationWarnings }}</h1>
+                    <h4>Units have a bad connection</h4>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="well well-lg alert-item-blue">
-                    <h1>10</h1>
-                    <h4>Warnings</h4>
+                    <h1>{{ unitDiskSpaceWarnings }}</h1>
+                    <h4>Units have an almost full disk</h4>
                 </div>
             </div>
             <div class="col-sm-3">
                 <div class="well well-lg alert-item-purple">
-                    <h1>8</h1>
-                    <h4>Warnings</h4>
+                    <h1>{{ averageConnectionTime }}</h1>
+                    <h4>Average connection time (in seconds)</h4>
                 </div>
             </div>
         </div>
     </div>
-    <div ng-controller="MaintenanceController">
+    <div ng-controller="MaintenanceController" style="margin-bottom: 32px;">
         <div class="row">
             <div class="col-sm-8">
                 <div class="panel-group">
@@ -108,21 +104,31 @@
                     </div>
                 </div>
             </div>
-
-            <br />
-
-            <div ng-controller="ConnectionController" class="col-sm-8">
+        </div>
+    </div>
+    <div ng-controller="IgnitionController">
+        <div class="row">
+            <div class="col-sm-8">
                 <div class="panel-group">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#collapse1">Connection Piechart</a>
+                                <a data-toggle="collapse" href="#collapse1">Ignition graph</a>
                             </h4>
                         </div>
                         <div id="collapse1" class="panel-collapse collapse in">
                             <div class="panel-body">
                                 <div google-chart chart="chartObject" style="height:600px; width:100%;"></div>
-                                Total average: {{totalAverage}} seconds
+                                <hr />
+                                <h2>Interval</h2>
+                                <div class="form-group">
+                                    <label for="begin">Begin:</label>
+                                    <input class="form-control" type="date" ng-model="startDate" /><br/>
+                                    <label for="end">End:</label>
+                                    <input class="form-control" type="date" ng-model="endDate" />
+                                </div>
+
+                                <button class="btn btn-default" type="button" ng-click="select()">Update</button>
                             </div>
                         </div>
                     </div>

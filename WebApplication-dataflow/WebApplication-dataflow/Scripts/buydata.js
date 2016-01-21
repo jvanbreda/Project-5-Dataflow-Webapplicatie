@@ -1,4 +1,4 @@
-﻿var app = angular.module('BuyData', []);
+﻿//var app = angular.module('BuyData', []);
 app.controller('BuyDataController', function ($scope, $http) {
     $scope.dataSelect = null;
 
@@ -6,9 +6,9 @@ app.controller('BuyDataController', function ($scope, $http) {
     $scope.dataTypeSelect = 'CSV';
 
     //current day
-    $scope.dateFrom = new Date();
+    $scope.dateFrom = new Date(1420066800000);
     //current day + 1 day
-    $scope.dateTo = new Date($scope.dateFrom.getTime() + 86400000);
+    $scope.dateTo = new Date();
 
     $scope.stepCount = 0;
 

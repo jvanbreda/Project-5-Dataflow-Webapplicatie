@@ -1,6 +1,6 @@
-﻿var unitInfoApp = angular.module('UnitApp', []);
+﻿//var unitInfoApp = angular.module('UnitApp', []);
 
-unitInfoApp.service('HTTPService', function ($http) {
+app.service('HTTPService', function ($http) {
     
     var getData = function () {
         return $http.get("http://145.24.222.160/DataFlowAnalyseService/api/UnitInformation/")
@@ -14,7 +14,7 @@ unitInfoApp.service('HTTPService', function ($http) {
     return { getData: getData };
 });
 
-unitInfoApp.controller("AnalysedDataController", ['$scope', 'HTTPService', function ($scope, HTTPService) {
+app.controller("AnalysedDataController", ['$scope', 'HTTPService', function ($scope, HTTPService) {
     var dataPromise = HTTPService.getData();
     dataPromise.then(function (response) {
         google.setOnLoadCallback(drawGraph(response));        

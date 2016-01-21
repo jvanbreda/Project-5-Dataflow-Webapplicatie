@@ -1,7 +1,7 @@
-﻿var app = angular.module('Ignition', ["googlechart"]);
-app.controller('SelectController', function ($scope, $http) {
-    $scope.startDate = new Date();
-    $scope.endDate = new Date();
+﻿//var app = angular.module('Ignition', ["googlechart"]);
+app.controller('IgnitionController', function ($scope, $http) {
+    $scope.startDate = new Date("March 12, 2015 00:00:00");
+    $scope.endDate = new Date("March 14, 2015 00:00:00");
 
     $scope.select = function () {
         var startDate = $scope.startDate.getFullYear() + "-" + ($scope.startDate.getMonth() + 1) + "-" + $scope.startDate.getDate();
@@ -10,7 +10,7 @@ app.controller('SelectController', function ($scope, $http) {
     }
 
     $scope.ignition = [];
-    
+
     $scope.chartObject = {};
 
     $scope.chartObject.type = "BarChart";
@@ -23,7 +23,14 @@ app.controller('SelectController', function ($scope, $http) {
     };
 
     $scope.chartObject.options = {
-        'title': 'Ignition count per unit'
+        title: 'Ignition count per unit',
+        hAxis: {
+            title: 'Ignition count',
+            minValue: 0
+        },
+        vAxis: {
+            title: 'Unit Id'
+        }
     };
 
     $scope.loadGraph = function (startDate, endDate) {
@@ -36,10 +43,10 @@ app.controller('SelectController', function ($scope, $http) {
 
         $http.get("http://145.24.222.160/DataFlowAnalyseService/api/Ignition" + "/" + startDate + "/" + endDate).then(function (response) {
             for (var i = 0; i < response.data.result.length; i++) {
-
-                console.log(response.data.result[i]);
                 $scope.chartObject.data["rows"][i] = { c: [{ v: response.data.result[i]["unitId"] }, { v: response.data.result[i]["ignitionCount"] }] };
             }
         })
-}
+    }
+
+    $scope.select();
 });

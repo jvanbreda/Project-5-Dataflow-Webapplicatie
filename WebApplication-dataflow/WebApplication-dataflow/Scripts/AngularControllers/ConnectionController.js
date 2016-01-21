@@ -9,7 +9,7 @@
     }
 
     $scope.connection = [];
-    $scope.totalAverage = 0;
+    $scope.totalAverage = "Loading ...";
     $scope.totalAverageMinute = 0;
     $scope.chartObject = {};
     $scope.chartObject.type = "BarChart";

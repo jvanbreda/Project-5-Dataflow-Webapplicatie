@@ -6,30 +6,17 @@ namespace WebApplication_dataflow.Controllers {
             return View();
         }
 
-        public ActionResult BuyData()
+        public ActionResult ControlPanel()
         {
-            return View();
-        }
-
-        public ActionResult Ignition()
-        {
-            return View();
-        }
-
-        public ActionResult About() {
-            ViewBag.Message = "Your about page";
-
-            return View();
-        }
-
-        public ActionResult Contact() {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
-        public ActionResult UnitsInfo() {
-            return View();
+            if (User.Identity.Name != "") { 
+                if(User.IsInRole("CityGis"))
+                    return RedirectToAction("Controlpanel", "CityGis", new { area = "" });
+                if (User.IsInRole("Fleet manager"))
+                    return RedirectToAction("Controlpanel", "FleetManager", new { area = "" });
+                if (User.IsInRole("Commercial"))
+                    return RedirectToAction("Controlpanel", "Commercial", new { area = "" });
+            }
+            return RedirectToAction("LogIn", "Account", new { area = "" });
         }
     }
 }
