@@ -3,7 +3,7 @@
 unitInfoApp.service('HTTPService', function ($http) {
     
     var getData = function () {
-        return $http.get("http://145.24.222.160/DataFlowAnalyseService/api/UnitInformations")
+        return $http.get("http://145.24.222.160/DataFlowAnalyseService/api/UnitInformation/")
             .then(function (response) {
                 return response.data.result;
             })
@@ -21,12 +21,12 @@ unitInfoApp.controller("AnalysedDataController", ['$scope', 'HTTPService', funct
     })
 }]);
 
-function drawGraph(response) {
-    
-    var data = google.visualization.DataTable();
-
-    for (var unit in response) {
-        data.addColumn(unit.unitId, unit.numOccurences);
+function drawGraph(response) {    
+    var data = new google.visualization.DataTable();
+    data.addColumn("string", "unitId");
+    data.addColumn("number", "Number of occurences");
+    for (var i = 0; i < response.length; i++) {
+        data.addRow([response[i].unitId.toString(), response[i].numOccurences]);
     }
 
     var barChart = new google.visualization.BarChart(document.getElementById('chartArea'));
