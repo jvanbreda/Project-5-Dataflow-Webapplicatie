@@ -168,32 +168,10 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', 'HTTP
             
             
         }
-
-        var biggestObject = [];
-        var getBiggestDate = function () {
-            //get longest date range per unitId    
-            for (var unitIdObject in allObjects) {
-                var obj = allObjects[unitIdObject];
-                if(obj.length > biggestObject.length){
-                    biggestObject = obj;
-                }           
-            }
-        }
-        var putBiggestDateInGraph = function () {           
-            for (var date in biggestObject) {
-                var obj = biggestObject[date];
-                var obj2 = obj[1];
-                console.log(obj2.endTime);//prints every timestamp from longest unitId range
-                return obj2.endTime
-            }
-        }
         
         getObjectsFromResponse();
-        getBiggestDate();
-        putBiggestDateInGraph();
-
         
-
+        var xAxisCounter = 0;
         $scope.options = {
             chart: {
                 type: 'lineChart',
@@ -212,10 +190,10 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', 'HTTP
                 useInteractiveGuideline: true,
                 clipVoronoi: false,
 
-                xAxis: {
-                    axisLabel: 'Time in days',
-                    tickFormat: function(d) {
-                        return d3.time.format('%d%m%y')(new Date(d))
+                xAxis: {                    
+                    axisLabel: '',                   
+                    tickFormat: function (d) {
+                            return "";
                     },
                     showMaxMin: true,
                     staggerLabels: true
