@@ -2,8 +2,8 @@
 
 diskSpaceApp.service('HTTPService', function ($http) {
     var getData = function () {
-        return $http.get("http://localhost:22328/api/UnitDiskSpace/111/hoi")
-        //return $http.get("http://145.24.222.160/DataFlowAnalyseService/api/UnitDiskSpace/111/status")
+        //return $http.get("http://localhost:22328/api/UnitDiskSpace/111/hoi")
+        return $http.get("http://145.24.222.160/DataFlowAnalyseService/api/UnitDiskSpace/111/status")
         .then(function (response) {
             return response.data.result;
         })
@@ -16,8 +16,8 @@ diskSpaceApp.service('HTTPService', function ($http) {
 
 diskSpaceApp.service('HTTPService2', function ($http) {
     var getData = function () {
-        return $http.get("http://localhost:22328/api/UnitDiskSpace/1")
-        //return $http.get("http://145.24.222.160/DataFlowAnalyseService/api/UnitDiskSpace/1")
+        //return $http.get("http://localhost:22328/api/UnitDiskSpace/1")
+        return $http.get("http://145.24.222.160/DataFlowAnalyseService/api/UnitDiskSpace/1")
         .then(function (response) {
             return response.data.result;
         })
