@@ -1,8 +1,30 @@
-﻿@{
-    ViewBag.Title = "CityGis Dashboard";
-    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+﻿@Scripts.Render("~/bundles/DiskSpace")
+@Scripts.Render("~/bundles/WebApi")
+@{
+    ViewBag.Title = "ControlPanel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script type="text/javascript" src="~/Scripts/d3/d3.js"></script>
+<script type="text/javascript" src="~/Scripts/angular-nvd3.js"></script>
+<script type="text/javascript" src="~/Scripts/nv.d3.js"></script>
+<link rel="stylesheet" href="~/Content/nv.d3.css"/>
 
+<h2>ControlPanel CityGis</h2>
+<div ng-app="diskSpaceApp">
+    <h1>Diskspace analysis</h1>
+    <div  ng-controller="diskSpaceController">
+        <nvd3 data="data" options="options"></nvd3>
+    </div>
+    <div  ng-controller="diskSpace2Controller">
+        <nvd3 data="data" options="options"></nvd3>
+    </div>
+</div>
+
+
+
+
+
+<<<<<<< HEAD
 <h1>@ViewBag.Title</h1>
 <hr />
 <div ng-app="dataflowApp">
@@ -78,4 +100,6 @@
 </div>
 
 @Scripts.Render("~/bundles/CityGisController")
+=======
+>>>>>>> refs/remotes/origin/diskspace-analysis
 

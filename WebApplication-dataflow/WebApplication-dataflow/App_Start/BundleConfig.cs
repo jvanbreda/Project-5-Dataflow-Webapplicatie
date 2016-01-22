@@ -59,6 +59,14 @@ namespace WebApplication_dataflow
                         "~/Scripts/AngularControllers/AlertController.js",
                         "~/Scripts/AngularControllers/IgnitionController.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/DiskSpace").Include(
+                    "~/Scripts/AngularControllers/DiskSpaceAnalysis/DiskSpaceController.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/WebApi").Include(
+                    "~/Scripts/AngularControllers/DiskSpace/WebApiFactory.js"));
+
+            
+
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
