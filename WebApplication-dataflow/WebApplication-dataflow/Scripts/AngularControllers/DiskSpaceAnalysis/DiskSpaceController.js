@@ -1,9 +1,9 @@
-﻿var diskSpaceApp = angular.module("diskSpaceApp", ['nvd3']);
+﻿//var diskSpacegertApp = angular.module("diskSpacegertApp", ['nvd3']);
 
-diskSpaceApp.service('HTTPService', function ($http) {
+gertApp.service('HTTPService', function ($http) {
     var getData = function () {
         //return $http.get("http://localhost:22328/api/UnitDiskSpace/111/hoi")
-        return $http.get("http://145.24.222.160/DataFlowAnalyseService/api/UnitDiskSpace/111/status")
+        return $http.get("http://145.24.222.160/DataFlowAnalyseService/api/UnitDiskSpace/111/status/status")
         .then(function (response) {
             return response.data.result;
         })
@@ -14,7 +14,7 @@ diskSpaceApp.service('HTTPService', function ($http) {
     return {getData: getData};
 });
 
-diskSpaceApp.service('HTTPService2', function ($http) {
+gertApp.service('HTTPService2', function ($http) {
     var getData = function () {
         //return $http.get("http://localhost:22328/api/UnitDiskSpace/1")
         return $http.get("http://145.24.222.160/DataFlowAnalyseService/api/UnitDiskSpace/1")
@@ -29,11 +29,11 @@ diskSpaceApp.service('HTTPService2', function ($http) {
 });
 
 
-diskSpaceApp.controller("diskSpaceController", ['$scope','HTTPService', '$log',function ($scope, HTTPService, $log) {
+gertApp.controller("diskSpaceController", ['$scope','HTTPService', '$log',function ($scope, HTTPService, $log) {
     var dataPromise = HTTPService.getData();
     dataPromise.then(function (response) {
         $scope.init = response.data;
-        $log.info(response);
+        //$log.info(response);
         var amountFull = 5;
         var amountAllmostFull = 6;
         var amountHalfFull = 7;
@@ -102,7 +102,7 @@ diskSpaceApp.controller("diskSpaceController", ['$scope','HTTPService', '$log',f
                 y: amountHalfFull
             },
             {
-                key: "Allmost full",
+                key: "Almost full",
                 y: amountAllmostFull
             },
             {
@@ -112,10 +112,10 @@ diskSpaceApp.controller("diskSpaceController", ['$scope','HTTPService', '$log',f
         ];
     })
 }]);
-diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', 'HTTPService', '$log', function ($scope, HTTPService ,HTTPService2, $log) {
+gertApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', 'HTTPService', '$log', function ($scope, HTTPService ,HTTPService2, $log) {
     var dataPromise = HTTPService.getData();
     dataPromise.then(function (response) {
-        $log.info(response);
+       //$log.info(response);
 
         var idObject = [];
         var idRangeObjects = [];
@@ -140,7 +140,7 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', 'HTTP
                 idRangeObjects.push(graphObject);
                 counter++;
             }
-            $log.info(allObjects);
+            //$log.info(allObjects);
         }
         var putObjectsInGraph = function () {
             var graphValues = [];
@@ -213,6 +213,8 @@ diskSpaceApp.controller("diskSpace2Controller", ['$scope', 'HTTPService2', 'HTTP
 
         putObjectsInGraph();
     })
+
+    angular.bootstrap(dataflowApp, ['dataflowApp']);
 }]);
 
 

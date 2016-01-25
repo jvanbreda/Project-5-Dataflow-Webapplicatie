@@ -1,33 +1,18 @@
-﻿@Scripts.Render("~/bundles/DiskSpace")
-@Scripts.Render("~/bundles/WebApi")
+﻿@Scripts.Render("~/bundles/WebApi")
+@Scripts.Render("~/bundles/CityGisController")
 @{
     ViewBag.Title = "ControlPanel";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
 }
 <script type="text/javascript" src="~/Scripts/d3/d3.js"></script>
 <script type="text/javascript" src="~/Scripts/angular-nvd3.js"></script>
 <script type="text/javascript" src="~/Scripts/nv.d3.js"></script>
-<link rel="stylesheet" href="~/Content/nv.d3.css"/>
-
-<h2>ControlPanel CityGis</h2>
-<div ng-app="diskSpaceApp">
-    <h1>Diskspace analysis</h1>
-    <div  ng-controller="diskSpaceController">
-        <nvd3 data="data" options="options"></nvd3>
-    </div>
-    <div  ng-controller="diskSpace2Controller">
-        <nvd3 data="data" options="options"></nvd3>
-    </div>
-</div>
+<link rel="stylesheet" href="~/Content/nv.d3.css" />
 
 
-
-
-
-<<<<<<< HEAD
 <h1>@ViewBag.Title</h1>
 <hr />
-<div ng-app="dataflowApp">
+<div id="dataflowApp">
     <div ng-controller="AlertController">
         <div class="row">
             <div class="col-sm-3">
@@ -82,10 +67,10 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#collapse1">Unit information graph</a>
+                                <a data-toggle="collapse" href="#collapse2">Unit information graph</a>
                             </h4>
                         </div>
-                        <div id="collapse1" class="panel-collapse collapse in">
+                        <div id="collapse2" class="panel-collapse collapse in">
                             <div class="panel-body">
                                 <h4>Unit information</h4>
                                 <div id="chartArea"></div>
@@ -97,9 +82,35 @@
             </div>
         </div>
     </div>
+    <hr />
+    <div ng-app="gertApp">
+        <div class="row">
+            <div class="col-sm-8">
+                <div ng-controller="diskSpace2Controller">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Diskspace analysis</div>
+                        <div class="panel-body">
+                            <h1>Diskspace analysis</h1>
+                            <nvd3 data="data" options="options"></nvd3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div ng-controller="diskSpaceController">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Diskspace analysis</div>
+                        <div class="panel-body">
+                            <h1>Diskspace analysis</h1>
+                            <nvd3 data="data" options="options"></nvd3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-@Scripts.Render("~/bundles/CityGisController")
-=======
->>>>>>> refs/remotes/origin/diskspace-analysis
+
+
 

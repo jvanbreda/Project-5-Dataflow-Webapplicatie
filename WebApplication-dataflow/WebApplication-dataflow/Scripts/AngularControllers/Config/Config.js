@@ -1,4 +1,5 @@
 ﻿var app = angular.module('dataflowApp', ["googlechart"]);
+var gertApp = angular.module('gertApp', ["nvd3"]);
 
 var config = {
     analysisWebserviceIp: "145.24.222.160",

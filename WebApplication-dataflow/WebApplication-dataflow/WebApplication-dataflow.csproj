@@ -180,6 +180,7 @@
     <Compile Include="Controllers\Users\CommercialController.cs" />
     <Compile Include="Controllers\Users\FleetManagerController.cs" />
     <Compile Include="Controllers\Users\UserController.cs" />
+    <Compile Include="Controllers\WebApi\WebApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -220,10 +221,9 @@
     <Content Include="Scripts\AngularControllers\AlertController.js" />
     <Content Include="Scripts\AngularControllers\Config\Config.js" />
     <Content Include="Scripts\AngularControllers\ConnectionController.js" />
+    <Content Include="Scripts\AngularControllers\DiskSpaceAnalysis\DiskSpaceController.js" />
     <Content Include="Scripts\AngularControllers\MaintenanceController.js" />
     <Content Include="Scripts\AngularControllers\IgnitionController.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\Webapp Dataflow.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\buydata.js" />
@@ -1021,10 +1021,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jspdf.debug.js" />
     <Content Include="Scripts\jspdf.js" />
     <Content Include="Scripts\jspdf.min.js" />

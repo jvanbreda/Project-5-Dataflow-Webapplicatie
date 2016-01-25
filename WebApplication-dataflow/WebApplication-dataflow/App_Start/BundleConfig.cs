@@ -51,16 +51,14 @@ namespace WebApplication_dataflow
                         "~/Scripts/AngularControllers/Config/Config.js",
                         "~/Scripts/AngularControllers/AlertController.js",
                         "~/Scripts/AngularControllers/ConnectionController.js",
-                        "~/Scripts/AngularControllers/UnitInformationController.js"));
+                        "~/Scripts/AngularControllers/UnitInformationController.js",
+                        "~/Scripts/AngularControllers/DiskSpaceAnalysis/DiskSpaceController.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/FleetManagerController").Include(
                         "~/Scripts/AngularControllers/Config/Config.js",
                         "~/Scripts/AngularControllers/MaintenanceController.js",
                         "~/Scripts/AngularControllers/AlertController.js",
                         "~/Scripts/AngularControllers/IgnitionController.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/DiskSpace").Include(
-                    "~/Scripts/AngularControllers/DiskSpaceAnalysis/DiskSpaceController.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/WebApi").Include(
                     "~/Scripts/AngularControllers/DiskSpace/WebApiFactory.js"));
